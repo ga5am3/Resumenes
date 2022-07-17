@@ -15,62 +15,67 @@ Para este metodo se aplicaran los siguientes pasos:
 4. Resolver el sistema de ecuaciones.
 
 Ejemplo:
+
+
 ![](ZImages/Pasted%20image%2020220628123523.png)
 
 Paso 1: Determinamos que hay 2 mallas y le asignamos un sentido a sus corrientes ficticias.
 
 Paso 2: Aplicamos ley de Kirchhoff de las tensiones a las mallas.
 $$
-\begin{align*}
+\begin{align}
 u_{s1}-u_{a}-u_{c}&=0\\
 - u_{s2}-u_{b}+u_{c}&=0
-\end{align*}
+\end{align}
 $$
 Paso 3: substituimos por las características tension corriente de los elementos:
 
 $$
-\begin{align*}
+\begin{align}
 u_{a}&=i_{1}Z_{1}\\
 u_{b}&= i_{2}Z_2\\
 u_{c}&= (i_{1}-i_{2})Z_{3}
-\end{align*}
+\end{align}
 $$
 Remplazamos en la ecuación:
 
 $$
-\begin{align*}
+\begin{align}
 u_{s1}&=u_{a}+u_{c}= i_{1}Z_{1}+(i_{1}-i_{2})Z_{3}\\
 -u_{s2}&= u_{b}-u_{c} = i_{2}Z_{2} -(i_{1}-i_{2})Z_{3}
-\end{align*}
+\end{align}
 $$
 despejando nos queda el sistema de ecuaciones:
 $$
-\begin{align*}
+\begin{align}
 u_{s1}&= i_{1}(Z_{1}+Z_{3})-i_{2}Z_{3}\\
 - u_{s2}&= -i_{1}Z_{3}+(Z_{2}+Z_{3})i_{2}
-\end{align*}
+\end{align}
 $$
 
 ### Fuentes De Corrientes Ideales En Una Sola Malla
 
 En este caso esto nos disminuye el numero de ecuaciones ya que la corriente en la malla va a estar dada por la fuente:
 $$
-i_{2}=-is 
+i_{2}=-is
 $$
-![](ZImages/Pasted%20image%2020220628124717.png)
+![](https://i.imgur.com/ttMdECg.png)
+
 
 ### Fuentes De Corriente Ideales Entre Dos Mallas
 
 En este caso la fuente define la diferencia de corrientes entre las dos mallas, formando lo que se llama una supermalla, y se la trata como si fuese una sola.
 
-![](ZImages/Pasted%20image%2020220628124836.png)
+![](https://i.imgur.com/OYfVDXS.png)
+
 nos da la relacion $i_{s}=i_{3}-i_{2}$
 
 ### Fuentes De Corriente Con Resistencia Interna
 
 Se pueden transformar fuentes de corriente con resistencia en fuentes de tension con resistencia interna para reducir el numero de mallas.
 
-![](ZImages/Pasted%20image%2020220628125001.png)
+![](https://i.imgur.com/0gsVGff.png)
+
 
 ### Fuentes Dependientes De Tensión Y Corriente
 
@@ -90,7 +95,7 @@ Para realizar este metodo seguimos los siguientes pasos:
 
 ### Ejemplo Con Fuentes Independientes De Corriente:
 
-![](ZImages/Pasted%20image%2020220330091442.png)
+![](https://i.imgur.com/lFCidvS.png)
 
 Paso 1: se elije el nodo 3 como nodo de referencia $v_{3}=0$ y se le da sentido a las corrientes, podemos ver que $N=3$ entonces $N-1 = 2$.
 
@@ -300,57 +305,57 @@ Este teorema nos permite encontrar la equivalencia entre un circuito "estrella" 
 
 Empezamos evaluando entre dos terminales en ambos circuitos:
 $$
-\begin{align*}
+\begin{align}
 1)&&Z_{1}+Z_{3} &= Z_{b}|| (Z_{a}+Z_{c})\\
 2)&&Z_{2}+Z_{3} &= Z_{c}|| (Z_{a}+Z_{b})\\
 3)&&Z_{1}+Z_{2} &= Z_{a}|| (Z_{b}+Z_{c})\\
-\end{align*}
+\end{align}
 $$
 Sumando dos de estas ecuaciones llegamos a tener una de las impedancias de triangulo en términos de las impedancias de estrella ($(1)-(2)+(3)$):
 $$
-\begin{align*}
+\begin{align}
 Z_{1}+\cancel{Z_{3}}-\cancel {Z_{2}}-\cancel{Z_{3}}+Z_{1}+\cancel{Z_{2}}&= \frac{Z_{b}(Z_{c}+Z_{a})}{Z_{a}+Z_{b}+Z_{c}} - \frac{Z_{c}(Z_{a}+Z_b)}{Z_{a}+Z_{b}+Z_{c}} +\frac{Z_{a}(Z_{b}+Z_c)}{Z_{a}+Z_{b}+Z_{c}} \\
 2 Z_{1}&= \frac{2Z_{a}Z_{b}+\cancel{Z_{a}Z_{c}}-\cancel{Z_{a}Z_{c}}+\cancel{Z_{c}Z_{b}}-\cancel{Z_{c}Z_{b}}}{Z_{T}} \\
 Z_{1}&= \frac{2Z_{b}Z_{a}}{2 Z_{T}} = \frac{Z_{a}Z_{b}}{Z_{a}+Z_{b}+Z_{c}}
-\end{align*}
+\end{align}
 $$
 respectivamente para las otras impedancias de triangulo tendremos:
 $$
-\begin{align*}
+\begin{align}
 Z_{2}&= \frac{Z_{a}Z_{c}}{Z_{a}+Z_{b}+Z_{c}}\\
 Z_{3}&= \frac{Z_{b}Z_{c}}{Z_{a}+Z_{b}+Z_{c}}
-\end{align*}
+\end{align}
 $$
 Para hacer el paso de estrella a triangulo vamos a necesitar las relaciones entre las impedancias de estrella para simplificar los pasos:
 $$
-\begin{align*}
+\begin{align}
 \frac{Z_{1}}{Z_{2}} &= \frac{Z_{b}\cancel{Z_{a}}}{\cancel{Z_{a}}Z_{c}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{b}}{Z_{c}}\\
 \frac{Z_{1}}{Z_{3}} &= \frac{Z_{a}\cancel{Z_{b}}}{\cancel{Z_{b}}Z_{c}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{a}}{Z_{c}}\\
 \frac{Z_{2}}{Z_{3}} &= \frac{Z_{a}\cancel{Z_{c}}}{\cancel{Z_{c}}Z_{b}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{a}}{Z_{b}}
-\end{align*}
+\end{align}
 $$
 Primero empezamos desde donde terminamos al pasar de triangulo a estrella, y dividimos todo por $Z_{a}$:
 $$
-\begin{align*}
+\begin{align}
 Z_{1}& = \frac{Z_{a}Z_{b}}{Z_{a}+Z_{b}+Z_{c}}\\
 Z_{1}&= \frac{Z_{b}}{1+Z_{b}/Z_{a}+Z_{c}/Z_{a}}
-\end{align*}
+\end{align}
 $$
 remplazando por las relaciones calculadas antes:
 $$
-\begin{align*}
+\begin{align}
 Z_{1}&= \frac{Z_{b}}{1 + Z_{3}/Z_{2}+ Z_{3}/Z_{1}}\\
 Z_{1} \left(1 + \frac{Z_{3}}{Z_{2}}+ \frac{Z_{3}}{Z_{1}}\right) &= Z_{b}\\
 Z_{b}&= \left(Z_{1}+Z_{3}+ \frac{Z_{3}Z_{1}}{Z_{2}}\right)\\
 Z_{b}&= \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{2}}
-\end{align*}
+\end{align}
 $$
 para las otras 2 impedancias de estrella obtendremos:
 $$
-\begin{align*}
+\begin{align}
 Z_{a} = \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{3}}\\
 Z_{c} = \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{1}}
-\end{align*}
+\end{align}
 $$
 
 ## Teorema De La Maxima Transferencia De Potencia
@@ -865,13 +870,13 @@ la solución del problema seria encontrar los valores de $V$, y $\phi_{v}$ en fu
 
 Para esto usamos la relacion:
 $$
-v(t) = L \frac{di(t)}{dt} =  \omega L I_{max}\cos(\omega t) = \omega L I_{max}\sin(\omega t+\phi_v +90)
+v(t) = L \frac{di(t)}{dt} =  \omega L I_{max}\cos(\omega t+\phi_i) = \omega L I_{max}\sin(\omega t+\phi_i +90)
 $$
 o en dominio de frecuencia esto se puede hacer como:
 $$
 \vec V = jL\omega \vec I \implies V_{max} \angle \phi_{v} = \omega LI_{max} \angle (\phi_{i}+90) 
 $$
-Por lo que $V_{max}=\omega L I_{max}$ y $\phi_{v}=\phi_{i}+90\implies \phi_i =\phi_v -90$, y esto se puede visualizar en el plano cartesiano tomando como referencia $\phi_{i}$ como:
+Por lo que $V_{max}=\omega L I_{max}$ y $\phi_{v}=\phi_{i}+90\implies \phi_i =\phi_v -90$, y esto se puede visualizar en el plano cartesiano tomando como referencia $\phi_{v}$ como:
 
 ![](ZImages/Pasted%20image%2020220630142430.png)
 
@@ -881,9 +886,7 @@ y en el plano complejo como:
 
 Donde $V= j X_{L}I_{max}$
 
-
-
-Receptor Capacitivo Puro
+## Receptor Capacitivo Puro
 
 ![](ZImages/Pasted%20image%2020220630165632.png)
 
@@ -1002,13 +1005,13 @@ lo que podemos relacionar con el triangulo de impedancias ya que este sera el mi
 
 Vemos por ley de Kirchhoff de los voltajes que:
 $$
-\begin{align*}
+\begin{align}
 \vec V &= \vec V_{R}+\vec V_{L}+\vec V_{C}\\
 &= \vec I R + jL\omega\vec I - \frac{j}{C\omega}\vec I \\
 \vec V&= \vec I (R+ j(L\omega - 1/C\omega)) \\
 &= \vec I (R+ j(\underbrace{X_{L} - X_{C}}_X))\\
 &= \vec I \vec Z
-\end{align*}
+\end{align}
 $$
 Entonces definimos la reactancia como $X=X_{L}-X_{C}$ y la impedancia como $\vec Z = R+jX$, dejando definida la ley de ohm para los circuitos de alterna como $\vec V = \vec Z\vec I$
 
@@ -1062,7 +1065,7 @@ i_{p}= \frac{V_{max}}{\sqrt{R^{2}+ \frac{1}{\omega^{2}C^{2}}}} \sin(\omega t+\ph
 $$
 Y aplicando las condiciones iniciales vamos a encontrar $K$.
 
-## Respuesta Transitoria RL en CA
+## Respuesta Transitoria RL En CA
 
 dado un circuito RL con una fuente alterna de voltaje $v(t)= V_{max}\sin(\omega t+\phi_{v})$
 
@@ -1156,12 +1159,21 @@ $$
 
 en el caso de un circuito puramente resistivo la impedancia es $Z=R$ y $\phi=0$, entonces la potencia instantanea es:
 
+**Definiendo $v$ y $i$** con cosenos:
 $$
 p(t) = VI+VI \cos(2\omega t-\phi) = VI+VI \cos(2\omega t) = P(1+cos(2\omega t))
 $$
 
 entonces el valor medio de la potencia es $P=VI$ y esta potencia (es la potencia activa) oscila entre $0$ y $2VI$, con el doble de frecuencia que la de la corriente y la del voltaje.
 
+
+
+![](ZImages/Pasted%20image%2020220715104537.png)
+
+**Definiendo $v$ y $i$ ** con senos:
+$$
+p(t) = VI-VI \cos(2\omega t+\phi) = VI+VI \cos(2\omega t) = P(1-cos(2\omega t))
+$$
 ![](ZImages/Pasted%20image%2020220306142319.png)
 
 podemos ver que como no hay termino $VI\sin(2\omega t)$ no hay potencia reactiva
@@ -1178,14 +1190,12 @@ $$
 
 ![](ZImages/Pasted%20image%2020220407155129.png)
 
-
-
 ### Potencia En Circuito Inductivo Puro
 
 En este caso $Z=j\omega L$ y $\phi=90$, en este caso la potencia instantanea se vuelve:
 
 $$
-p(t) =VI \cos(90)+ VI\cos(2\omega t-90)= VI \sin(2\omega t) = Q \sin(2\omega t)
+p(t) =\cancel{VI \cos(90)}+ VI\cos(2\omega t-90)= VI \sin(2\omega t) = Q \sin(2\omega t)
 $$
 Vemos que como $cos(90)=0$, por el defasaje en el otro termino terminamos con una función seno, por lo que esta potencia es puramente reactiva, y oscila con media de 0.
 
@@ -1210,11 +1220,11 @@ por lo tanto el funcionamiento sera igual pero opuesto a la del circuito con sol
 
 ![](ZImages/Pasted%20image%2020220407160104.png)
 
-## Potencia Instantanea RL en Alterna
+## Potencia Instantanea RL En Alterna
 
 Hay dos maneras de llegar a lo mismo, con coseno y la del apunte del profe
 
-### Planteo con Coseno
+### Planteo Con Coseno
 
 Dado un circuito:
 ![](ZImages/Pasted%20image%2020220406174716.png)
@@ -1393,9 +1403,9 @@ $$
 Q = VI \sin(\phi) = \frac{V^{2}}{Z} \frac{X_{L}}{Z} = \frac{Z^{2}V_{L}^{2}}{X_{L}^{2}} \frac{X_{L}}{Z^{2}} = \frac{V_{L}^{2}}{X_{L}}
 $$
 
-#### Finalizacion del planteo
+#### Finalizacion Del Planteo
 
-Si seguimos el desarrollo de la ecuacion:
+Si seguimos el desarrollo de la ecuación:
 
 $$
 p(t) = {V_{max}I_{max}\cos(\phi)}\sin^{2}(\omega t)+
@@ -1423,9 +1433,9 @@ lo que podemos ver graficamente como:
 
 En las partes positiva de $p(t)$ el generador entrega energía a la resistencia que la disipa y al inductor que la almacena en forma de campos magnéticos y en las negativas el inductor le devuelve su energía al generador
 
-## Potencia instantánea en RC en CA
+## Potencia instantánea En RC En CA
 
-### Planteo con Frecuencia
+### Planteo Con Frecuencia
 
 Dado un circuito serie RL con una fuente alterna.
 
@@ -1485,7 +1495,7 @@ p(t)&= VI\cos(\phi)+ VI (\cos\phi \cos(2\omega t)-\sin\phi\sin(2\omega t))\\
 $$
 Podemos ver que la potencia instantanea queda compuesta por dos partes, una fluctuante (la potencia aparente $S$) con magnitud igual a $VI$ y una parte constante en el tiempo la cual es la potencia media con el mismo valor que la potencia activa $P = IV\cos(\phi)$ por lo que podemos ver la potencia en el tiempo como:
 
-![](ZImages/Pasted%20image%2020220415122621.png)
+![](ZImages/Pasted%20image%2020220715114012.png)
 
 ademas podemos dibujar el triangulo de potencias escribiendo la potencia aparente con sus componente reactiva y activa:
 
@@ -1503,7 +1513,7 @@ $$
 
 teniendo en cuenta que $X=X_{L}-X_{C}$ y en este caso $X_L =0$.
 
-### Derivacion del apunte
+### Derivacion Del Apunte
 
 Partiendo de un circuito inductivo del tipo:
 
@@ -1554,15 +1564,13 @@ p(t) &= VI \cos\phi - VI[\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t)]\\
 $$
 lo que podemos representar graficamente como:
 
-![](ZImages/Pasted%20image%2020220705102120.png)
+![](ZImages/Pasted%20image%2020220715113825.png)
 
 
 
 En las partes positiva de $p(t)$ el generador entrega energía a la resistencia que la disipa y al capacitor que la almacena en forma de campos eléctricos y en las negativas el capacitor le devuelve su energía al generador
 
-
-
-## Potencia instantánea en Circuito RLC en CA
+## Potencia instantánea En Circuito RLC En CA
 
 En el caso de tener un circuito de la forma:
 ![](ZImages/Pasted%20image%2020220705102459.png)
@@ -1647,9 +1655,7 @@ Q = VI \sin(\phi) = \frac{V^{2}}{Z} \frac{X}{Z} = \frac{Z^{2}V_{X}^{2}}{X^{2}} \
 $$
 por lo tanto podemos ver a la potencia reactiva como la potencia involucrada en el intercambio de energia almacenada por el capacitor en forma de campos electricos y por el inductor en forma de campos magneticos.
 
-![](ZImages/Pasted%20image%2020220705104356.png)
-
-
+!![](ZImages/Pasted%20image%2020220715114740.png)
 
 ## Potencia Aparente
 
@@ -1693,7 +1699,7 @@ $$
 Es importante destacar que las expresiones son modulares (no 
 complejas). Por convenio, se consideran los ángulos r positivos para cargas inductivas y negativos para las capacitivas, esto no afecta la potencia activa ya que $\cos(x)=\cos(-x)$ pero es necesario dar signo a las potencias reactivas, las cuales seran positivas para cargas inductivas y negativas para cargas capacitivas.
 
-## Triangulo de Potencia
+## Triangulo De Potencia
 
 Partiendo de la ecuacion para potencia instantanea:
 
@@ -1745,8 +1751,7 @@ $$
 \end{align*}
 $$
 
-
-## Corrección del factor de potencia
+## Corrección Del Factor De Potencia
 
 ### Con Fasores
 
@@ -1860,7 +1865,7 @@ C&= \frac{P(\tan \phi_{i}-\tan \phi_{f})}{V^{2}\omega}
 \end{align*}
 $$
 
-## Calculo de Corriente de Neutro
+## Calculo De Corriente De Neutro
 
 Considerando un sistema:
 
@@ -1927,8 +1932,6 @@ en este caso es como vimos antes, determinamos las corrientes de linea y de roto
 ### Carga En Estrella Desequilibrada 3 Hilos
 
 Este caso es cuando no hay conductor neutro en la instalacion, lo que equivale a $Z_{N}=\infty$ o a $Y_{N}=0$. se calcula la tension de neutro de las cargas con la ecuacion deducida para $V_{N'N}$ de desplazamiento de neutro, se determinan las tensiones de linea como $V_{RN'}=V_{RN}-V_{N'N}$ para cada una y se determinan las corrientes de linea, en este caso como no hay un hilo neutro, no habra corriente de retorno por ese hilo.
-
-
 
 ## Potencia Trifasica
 
@@ -2074,7 +2077,7 @@ la potencia reactiva sera $Q= 3Q_{fase} = 3V_{F}I_{F}\sin\phi$ y la aparente $S=
 ![](ZImages/Pasted%20image%2020220412101947.png)
 ![](ZImages/Pasted%20image%2020220412102049.png)
 
-### Deducción del Apunte
+### Deducción Del Apunte
 
 Dada una carga equilibrada con 3 resistencias iguales conectadas en estrella
 ![](ZImages/Pasted%20image%2020220707095309.png)
@@ -2098,9 +2101,8 @@ p(t)&= p_{1}(t)+p_{2}(t)+p_{3}(t)\\
 \end{align*}
 $$
 esto viene de la identidad trigonometrica: $\cos(a+b) = \cos(a)\cos(b)-\sin(a)\sin(b)$
-Desarrollando los cuadrados de los binomios, y simplificando teniendo en cuenta que $\cos(120°) = -0.5$ y que $\sin(120°)=-\sin(120°)= \sqrt3/2$
+Desarrollando los cuadrados de los binomios, y simplificando teniendo en cuenta que $\cos(120°)=\cos(-120) = -0.5$ y que $\sin(120°)= \sqrt3/2$
 por lo tanto quedamos con:
-
 $$
 \begin{align*}
 p(t) &= V_{max}I_{max}\left(\cos^{2}(\omega t)+ \frac{1}{2^{2}}\cos^{2}(\omega t))+2\cos(\omega t)\sin(\omega t) + \left(\frac{\sqrt3}
@@ -2138,7 +2140,8 @@ Q &=V_{1N}I_{1}\sin\phi_{1}+V_{2N}I_{2}\sin\phi_{2}+V_{3N}I_{3}\sin\phi_{3} \\
 \vec S&= P+jQ= S\angle \phi
 \end{align*}
 $$
-#### Conexion Estrella equilibrada
+
+#### Conexion Estrella Equilibrada
 
 $$
 \begin{align*}
@@ -2162,6 +2165,7 @@ Q &= \sqrt3 V_{l}I_{l}\sin\phi\\
 S &= \sqrt3 V_{l}I_{L}
 \end{align*}
 $$
+
 #### Triangulo Desequilibrado
 
 $$
@@ -2197,7 +2201,7 @@ Q_{0}= 2\pi \frac{\text{ Energia maxima almacenada}}{\text{Energia disipada por 
 $$
 Dado que en resonancia la energía máxima almacenada en un inductor es igual a la energía máxima almacenada en un capacitor podemos usar cualquiera de estos para calcular $Q_0$.
 
-### En un RLC serie
+### En Un RLC Serie
 
 en este caso la energia instantanea en un inductor sera:
 $$
@@ -2205,21 +2209,21 @@ $$
 $$
 y esta sera maxima cuando $i_L$ toma su maximo valor:
 $$
-\omega_{L}(t) = \frac{1}{2}L i_{L}^{2}
+\omega_{L}(t) = \frac{1}{2}L I_{L_{max}}^{2}
 $$
-Conseguimos la energía instantánea dispada en la resistencia integrando sobre la potencia:
+Conseguimos la energía instantánea dispada en la resistencia integrando sobre la potencia en el resistor:
 $$
-w_{R}(t) = R \int (i_{R})^{2}dt 
+w_{R}(t) = R \int (i_{R})^{2}dt
 $$
  Dado que suponemos una corriente de la forma $i_R = I_{R_max} \cos(\omega_0 t)$, nos queda la siguiente expresión para la corriente cuadrada:
 $$
 i_{R}^{2} = i_{R_{max}} cos(\omega_{0}t) \cdot i_{R_{max}} \cos(\omega_{0}t) = \frac{i_{R_{max}}}{2}[cos(\omega_{0}t -\omega_{0}t)+  cos(\omega_{0}t+\omega_{0}t)]
 $$
-Utilizando esto  calculamos la energía instantánea disipada como:
+Utilizando esto calculamos la energía instantánea disipada como:
 $$
 W_{R}= R\int_{0}^{T} \left(\frac{I_{R_{max}}^{2}}{2}+ \frac{I_{R_{max}}^{2}}{2} \cos(2\omega t)\right) dt = \frac{1}{2}R (I_{R_{max}})^{2} T
 $$
-con $T=2\pi/2$ siendo el periodo de la señal en resonancia.
+con $T=2\pi/\omega_0$ siendo el periodo de la señal en resonancia.
 
 Luego podemos calcular $Q_0$ desde su definicion como:
 $$
@@ -2238,7 +2242,7 @@ $$
 Q_0 = \omega_0 RC = \frac{R}{\omega_0 L}
 $$
 
-## Curva Universal de admitancia de Resonancia en Serie
+## Curva Universal De Admitancia De Resonancia En Serie
 
 La admitancia de un circuito serie es la inversa de la impedancia:
 
@@ -2281,7 +2285,7 @@ $$
 Z = \left(R \frac{R_{0}}{R_{0}} + j\omega_{0}L 
 \frac{R_{0}}{R_{0}} \delta \frac{\delta+2}{\delta+1}\right) = R_{0} \left( \frac{R}{R_{0}} + j Q \delta \frac{\delta+2}{\delta+1}\right)
 $$
-Y dado que para frecuencias cercanas a resonancia $\delta$ se vuelve pequeña en comparacion a $1$ , y $R \rightarrow R_0$ podemos  reducir la ecuacion a:
+Y dado que para frecuencias cercanas a resonancia $\delta$ se vuelve pequeña en comparacion a $1$ , y la resistencia puede ser constante respecto a la frecuencia entonces$R \rightarrow R_0$, con esto podemos reducir la ecuacion a:
 $$
 Z = R_{0} \left( 1 + j 2Q \delta\right)
 $$
@@ -2306,7 +2310,7 @@ Usando esta formula se forma la curva universal de resonancia,  esta es la misma
 
 ![](ZImages/Pasted%20image%2020220308154725.png)
 
-![](ZImages/Pasted%20image%2020220708105748.png)
+![](ZImages/Pasted%20image%2020220715101125.png)
 
 Las componentes se encuentran racionalizando la formula:
 
@@ -2321,7 +2325,7 @@ Re\left[\frac{Y}{Y_{0}}\right]= \frac{G}{Y_{0}} = \frac{1}{1+(2Q_{0}\delta)^{2}}
 $$
 La componte imaginaria sera:
 $$
-Im\left[\frac{Z}{Z_{0}}\right]= \frac{B}{Y_{0}}= \frac{-2Q_{0}\delta}{1+(2Q_{0}\delta)^{2}}
+Im\left[\frac{Y}{Y_{0}}\right]= \frac{B}{Y_{0}}= \frac{-2Q_{0}\delta}{1+(2Q_{0}\delta)^{2}}
 $$
 y la magnitud de la admitancia total sera:
 
@@ -2334,7 +2338,7 @@ es importante notar que:
 - La imaginaria cruza 0.5 en 0.5 y luego disminuye.
 - a $1/\sqrt2$  tenemos la mitad de la potencia y coincide con 0.5 en frequencia.
 
-## Curva Universal de resonancia en paralelo
+## Curva Universal De Resonancia En Paralelo
 
 Dado un circuito:
 ![](ZImages/Pasted%20image%2020220708100055.png)
@@ -2397,7 +2401,7 @@ Vamos a multiplicar y dividir por $G_{0}$ para poder introducir $Q_{0}$ a la for
 $$
 Y = G \frac{G_{0}}{G_{0}}+ j\omega_{0}C \frac{G_{0}}{G_{0}} \delta \frac{\delta+2}{\delta+1} = G_{0}\left(\frac{G}{G_{0}}+ jQ\delta \frac{\delta+2}{\delta+1} \right)
 $$
-y dado que en resonancia la desintonizacion factorial va a ser 0, para frecuencias cercanas a rasonancia $\delta$ se vuelve muy pequeña en comparacion a 1, y $G\rightarrow G_{0}$ podemos reducir la ecuacion a:
+y dado que en resonancia la desintonizacion factorial va a ser 0, para frecuencias cercanas a rasonancia $\delta$ se vuelve muy pequeña en comparacion a 1, y $G\rightarrow G_{0}$ si es independiente de la frecuencia, entonces podemos reducir la ecuacion a:
 
 $$
 Y = G_{0}(1+j2Q\delta)
@@ -2420,7 +2424,7 @@ El angulo de la impedancia se incrementa desde 0 en resonancia hasta cerca de 90
 
 Usando esta formula se forma la curva universal de resonancia, esta es la misma para todos los circuitos, solo cambia la altura y ancho, para diferentes frecuencias de resonancia y perdida , por lo tanto se puede usar para representar la resonancia en todos los circuitos modificando la escala apropiadamente.
 
-![](ZImages/Pasted%20image%2020220708103406.png)
+![](ZImages/Pasted%20image%2020220715101238.png)
 
 Las componentes se encuentran racionalizando la formula:
 
@@ -2447,7 +2451,7 @@ es importante notar que:
 -   La imaginaria cruza 0.5 en 0.5 y luego disminuye. 
 -   a $1/\sqrt2$ tenemos la mitad de la potencia y coincide con 0.5 en frecuencia.
 
-## Diagrama Fasorial en Serie
+## Diagrama Fasorial En Serie
 
 En un circuito RLC en serie podemos ver la impedancia como:
 $$
@@ -2463,7 +2467,7 @@ La impedancia $Z$ de un circuito $RLC$ en serie puede observarse como una repres
 
 donde $f_{0}$ es la frecuencia de resonancia.
 
-## Diagrama Fasorial en Paralelo
+## Diagrama Fasorial En Paralelo
 
 Dado un circuito en paralelo:
 ![](ZImages/Pasted%20image%2020220708111612.png)
@@ -2482,15 +2486,14 @@ podemos visualizar en un diagrama donde observaremos las corrientes resultantes 
 
 podemos encontrar algunas veces que tanto la corriente de $C$ como la de $L$ sean muchas veces mayores que la corriente total en los terminales.
 
-## Sobre Intensidades y sobretensiones
+## Sobre Intensidades Y Sobretensiones
 
 ### Sobretensiones
 
 dado un circuito RLC en serie el voltaje entre terminales de uno de los elementos individuales del circuito resonante puede ser muchas veces mayor que el voltaje aplicado, esto se puede ver en el diagrama fasorial en serie.
 
-En resonancia la impedancia de entrada del circuito resonante es $R$ por si la corriente es $I$ el voltaje terminal sera $V=RI$.
-Pero el voltaje entre los terminales de la inductancia sola es $j\omega L I$, lo cual en resonancia es $j\omega LI$, y como sabemos que $Q_{0}= \omega_{0}L/R$, entonces podemos introducir el factor de calidad como $\omega L = R Q_{0}$, lo que nos deja con el voltaje entre terminales de la inductancia expresado como:
-
+En resonancia la impedancia de entrada del circuito resonante es $R$ por lo que si la corriente es $I$ el voltaje terminal sera $V=RI$.
+Pero el voltaje entre los terminales de la inductancia sola es $j\omega L I$, lo cual en resonancia es $j\omega_0 LI$, y como sabemos que $Q_{0}= \omega_{0}L/R$, entonces podemos introducir el factor de calidad como $\omega L = R Q_{0}$, lo que nos deja con el voltaje entre terminales de la inductancia expresado como:
 $$
 V_{L}=j\omega_{0}L I = jQ_{0}RI=jQ_{0}V
 $$
@@ -2502,7 +2505,7 @@ $$
 V_{C}= -jQ_{0}V
 $$
 
-### Sobreintensidades o Sobrecorrientes
+### Sobreintensidades O Sobrecorrientes
 
 Dado un circuito $RLC$ en paralelo, la corriente que pase por uno de los elementos puede ser mucho mayor a la corriente total, esto puede ser visto en el diagrama fasorial en paralelo.
 
@@ -2518,17 +2521,15 @@ $$
 I_{L} = -jQ_{0}I
 $$
 
-## Parametros y, z, y abcd
+## Parametros $y, z$, Y $abcd$
 
-
-
-### Definicion de Cuadripolo
+### Definicion De Cuadripolo
 
 un cuadripolo es un set de elementos electricos con 4 terminales de acceso, o dos puertos, los cuales son accesibles desde el exterior de tal forma que en cada par la corriente que entra por uno sale por el otro.
 
 ![image-20220710110134845](/home/bbruno/snap/typora/57/.config/Typora/typora-user-images/image-20220710110134845.png)
 
-### Planteo de Ecuaciones
+### Planteo De Ecuaciones
 
 Para plantear las relaciones entre las 4 variables observables vamos a suponer que tenemos un cuadripolo pasivo (sin fuentes en su interior) de $n$ mallas:
 
@@ -2614,7 +2615,7 @@ I_{2} &= y_{21}V_{1}+ y_{22}V_{2}
 $$
 donde a la matriz $Y$ la llamamos matriz admitancia del cuadripolo, y esta esta compuesta por los **parametros** $y_{11}, y_{12}, y_{21}$ y $y_{22}$, y en base a estos parametros podemos obtener las corrientes en funcion de las tensiones.
 
-### Tipos de Parametros
+### Tipos De Parametros
 
  De manera analoga al ejemplo hecho, se pueden obtener 6 juegos de parametros, desde las relaciones entre $V_1, I_1, V_2$ y $I_2$, estos son:
 
@@ -2622,7 +2623,7 @@ donde a la matriz $Y$ la llamamos matriz admitancia del cuadripolo, y esta esta 
 
 Entre estos, cualquier juego de parametros puede ser obtenidos en funcion de los otros 5.
 
-### Obtension de parametros
+### Obtension De Parametros
 
 Estos parametros se pueden obtener de dos formas:
 
@@ -2665,7 +2666,7 @@ Y como no circula corriente por $Y_3$ la corriente que pasa por $Y_2$ sera $-I_2
 $$
 y_{21} = \left. \frac{I_{2}}{V_{1}} \right|_{V_{2}=0}=-Y_2
 $$
- Dejando en  corto el otro terminal conseguimos $y_{22}$ y $y_{12}$:
+ Dejando en corto el otro terminal conseguimos $y_{22}$ y $y_{12}$:
 
 ![image-20220710120329760](/home/bbruno/snap/typora/57/.config/Typora/typora-user-images/image-20220710120329760.png)
 
@@ -2678,8 +2679,7 @@ $$
 y_{12} = \left. \frac{I_{1}}{V_{2}} \right|_{V_{1}=0}=-Y_2 
 $$
 
-
-#### Por ensayo
+#### Por Ensayo
 
 Por ensayo para calcular cada parámetro se debe crear la condición que corresponde y medir las dos magnitudes que intervienen en su cálculo.
 
@@ -2696,7 +2696,7 @@ $$
 
 Primero definimos impedancia de entrada y impedancia de salida
 
-### Impedancia de entrada
+### Impedancia De Entrada
 
 Esta es el cociente entre el voltaje y la corriente de entrada.
 
@@ -2707,12 +2707,12 @@ V_{1}&= A V_{2}+ B I_{2}\\
 I_{1}&= C V_{2}+ D I_{2}
 \end{align*}
 $$
-entonces podemos escribir la impedancia de entrada como función de los parámetros de la red, haciendo el cociente entre estas dos funciones de parametros, y luego multiplicando denominador y numerador por la impedancia de carga $V_2/I_2$ :
+entonces podemos escribir la impedancia de entrada como función de los parámetros de la red, haciendo el cociente entre estas dos funciones de parametros, y luego dividiendo denominador y numerador por $I_2$ para introducir la impedancia de carga $V_2/I_2$ nos queda:
 $$
 Z_{1} = \frac{V_{1}}{I_{1}}= \frac{A V_{2}+BI_{2}}{CV_{2}+DI_{2}} = \frac{A\frac{V_{2}}{I_{2}}+B}{C \frac{V_{2}}{I_{2}}+D} = \frac{AZ_{c}+B}{CZ_{c}+D}
 $$
 
-### Impedancia de salida
+### Impedancia De Salida
 
 Esta esta dada por el voltaje y corriente que ingresa al puerto de salida.
 
@@ -2732,7 +2732,7 @@ $$
 Z_{2} = \frac{DV_{1}-BI_{1}}{CV_{1}-AI_{1}}= \frac{DZ_{1}-B}{CZ_{1}-A}
 $$
 
-### Impedancias de entrada y salida en corto o abiertas
+### Impedancias De Entrada Y Salida En Corto O Abiertas
 
 en caso de tener un corto en el terminal de salida $V_2=0$, recordamos que los parametros de impedancia y admitancia eran:
 $$
@@ -2810,11 +2810,9 @@ $$
 Z_{0}= \sqrt{z_{1V}z_{1C}}=\sqrt{z_{2V}z_{2C}}
 $$
 
-## Relacion Tension, Corriente, Potencia y Impedancia Imagen
+## Relacion Tension, Corriente, Potencia Y Impedancia Imagen
 
 > No se, No he encontrado de que trata esto
-
-## Corrientes Poliarmonicas
 
 # Corrientes Poliarmonicas
 
