@@ -25,9 +25,10 @@ Paso 2: Aplicamos ley de Kirchhoff de las tensiones a las mallas.
 $$
 \begin{align}
 u_{s1}-u_{a}-u_{c}&=0\\
-- u_{s2}-u_{b}+u_{c}&=0
+\ -u_{s2}-u_{b}+u_{c}&=0
 \end{align}
 $$
+
 Paso 3: substituimos por las características tension corriente de los elementos:
 
 $$
