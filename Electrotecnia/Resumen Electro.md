@@ -200,16 +200,16 @@ Ejemplo: Obtener el voltaje $v_{3}$
 Al actuar solo la fuente de voltaje tendremos:
 
 ![](ZImages/Pasted%20image%2020220628125724.png)
-$$
 
+$$
 v_{3,vs}= \frac{R_{1}}{R_3+R_{1}}v_s
 $$
 
 si solo actúa la fuente de corriente tendremos:
 
 ![](ZImages/Pasted%20image%2020220628125812.png)
-$$
 
+$$
 v_{3,is}= \frac{R_{1}R_{3}}{R_{1}+R_3}i_{s}
 $$
 
