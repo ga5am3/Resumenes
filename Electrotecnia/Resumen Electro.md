@@ -24,7 +24,7 @@ Paso 1: Determinamos que hay 2 mallas y le asignamos un sentido a sus corrientes
 Paso 2: Aplicamos ley de Kirchhoff de las tensiones a las mallas.
 $$
 \begin{align}
-u_{s1}-u_{a}-u_{c}&=0\\
+u_{s1}-u_{a}-u_{c}&=0\\\\\\
 \ -u_{s2}-u_{b}+u_{c}&=0
 \end{align}
 $$
@@ -33,8 +33,8 @@ Paso 3: substituimos por las características tension corriente de los elementos
 
 $$
 \begin{align}
-u_{a}&=i_{1}Z_{1}\\
-u_{b}&= i_{2}Z_2\\
+u_{a}&=i_{1}Z_{1}\\\\\\
+u_{b}&= i_{2}Z_2\\\\\\
 u_{c}&= (i_{1}-i_{2})Z_{3}
 \end{align}
 $$
@@ -42,14 +42,14 @@ Remplazamos en la ecuación:
 
 $$
 \begin{align}
-u_{s1}&=u_{a}+u_{c}= i_{1}Z_{1}+(i_{1}-i_{2})Z_{3}\\
+u_{s1}&=u_{a}+u_{c}= i_{1}Z_{1}+(i_{1}-i_{2})Z_{3}\\\\\\
 -u_{s2}&= u_{b}-u_{c} = i_{2}Z_{2} -(i_{1}-i_{2})Z_{3}
 \end{align}
 $$
 despejando nos queda el sistema de ecuaciones:
 $$
 \begin{align}
-u_{s1}&= i_{1}(Z_{1}+Z_{3})-i_{2}Z_{3}\\
+u_{s1}&= i_{1}(Z_{1}+Z_{3})-i_{2}Z_{3}\\\\\\
 - u_{s2}&= -i_{1}Z_{3}+(Z_{2}+Z_{3})i_{2}
 \end{align}
 $$
@@ -101,42 +101,42 @@ Para realizar este metodo seguimos los siguientes pasos:
 Paso 1: se elije el nodo 3 como nodo de referencia $v_{3}=0$ y se le da sentido a las corrientes, podemos ver que $N=3$ entonces $N-1 = 2$.
 
 $$
-\begin{align*}
-u_{1}&= v_{1}-0 = u_{1}\\
-u_{2}&= v_{2}-0 = u_{2}\\
+\begin{align}
+u_{1}&= v_{1}-0 = u_{1}\\\\\\
+u_{2}&= v_{2}-0 = u_{2}\\\\\\
 u_{12} &= v_{1}-v_{2}=u_{1}-u_{2}
-\end{align*}
+\end{align}
 $$
 
 Paso 2: se aplica la ley de kirchoff de las corrientes.
 $$
-\begin{align*}
-i_{s1}- i_{12}-i_{13}=0\\
+\begin{align}
+i_{s1}- i_{12}-i_{13}=0\\\\\\
 i_{12}- i_{s2}-i_{23}=0
-\end{align*}
+\end{align}
 $$
 por lo que reordenando nos queda:
 $$
-\begin{align*}
-i_{s1}&= i_{12}+ i_{13}\\
+\begin{align}
+i_{s1}&= i_{12}+ i_{13}\\\\\\
 i_{s2} &= i_{23}-i_{12} 
-\end{align*}
+\end{align}
 $$
 
 Paso 3: substituimos por las caracteristicas $V-I$ que por la ley de ohm serian:
 $$
-\begin{align*}
-i_{12}&=u_{12}Y_{2}= (u_{1}-u_{2})Y_{2}\\
-i_{13} &= u_{1}Y_{1}\\
+\begin{align}
+i_{12}&=u_{12}Y_{2}= (u_{1}-u_{2})Y_{2}\\\\\\
+i_{13} &= u_{1}Y_{1}\\\\\\
 i_{23}&= u_{2}Y_{3}
-\end{align*}
+\end{align}
 $$
 substituyendo:
 $$
-\begin{align*}
-i_{s1}&= (u_{1}-u_{2})Y_{2}+u_{1}Y_{1}=u_{1}(Y_{1}+Y_{2})-u_{2}Y_{2}\\
+\begin{align}
+i_{s1}&= (u_{1}-u_{2})Y_{2}+u_{1}Y_{1}=u_{1}(Y_{1}+Y_{2})-u_{2}Y_{2}\\\\\\
 i_{s2} &= u_{2}Y_{3} - (u_{1}-u_{2})Y_{2}=-u_{1}Y_{2}+ u_{2}(Y_{2}+Y_{3})
-\end{align*}
+\end{align}
 $$
 
 
@@ -307,54 +307,54 @@ Este teorema nos permite encontrar la equivalencia entre un circuito "estrella" 
 Empezamos evaluando entre dos terminales en ambos circuitos:
 $$
 \begin{align}
-1)&&Z_{1}+Z_{3} &= Z_{b}|| (Z_{a}+Z_{c})\\
-2)&&Z_{2}+Z_{3} &= Z_{c}|| (Z_{a}+Z_{b})\\
-3)&&Z_{1}+Z_{2} &= Z_{a}|| (Z_{b}+Z_{c})\\
+1)&&Z_{1}+Z_{3} &= Z_{b}|| (Z_{a}+Z_{c})\\\\\\
+2)&&Z_{2}+Z_{3} &= Z_{c}|| (Z_{a}+Z_{b})\\\\\\
+3)&&Z_{1}+Z_{2} &= Z_{a}|| (Z_{b}+Z_{c})\\\\\\
 \end{align}
 $$
 Sumando dos de estas ecuaciones llegamos a tener una de las impedancias de triangulo en términos de las impedancias de estrella ($(1)-(2)+(3)$):
 $$
 \begin{align}
-Z_{1}+\cancel{Z_{3}}-\cancel {Z_{2}}-\cancel{Z_{3}}+Z_{1}+\cancel{Z_{2}}&= \frac{Z_{b}(Z_{c}+Z_{a})}{Z_{a}+Z_{b}+Z_{c}} - \frac{Z_{c}(Z_{a}+Z_b)}{Z_{a}+Z_{b}+Z_{c}} +\frac{Z_{a}(Z_{b}+Z_c)}{Z_{a}+Z_{b}+Z_{c}} \\
-2 Z_{1}&= \frac{2Z_{a}Z_{b}+\cancel{Z_{a}Z_{c}}-\cancel{Z_{a}Z_{c}}+\cancel{Z_{c}Z_{b}}-\cancel{Z_{c}Z_{b}}}{Z_{T}} \\
+Z_{1}+\cancel{Z_{3}}-\cancel {Z_{2}}-\cancel{Z_{3}}+Z_{1}+\cancel{Z_{2}}&= \frac{Z_{b}(Z_{c}+Z_{a})}{Z_{a}+Z_{b}+Z_{c}} - \frac{Z_{c}(Z_{a}+Z_b)}{Z_{a}+Z_{b}+Z_{c}} +\frac{Z_{a}(Z_{b}+Z_c)}{Z_{a}+Z_{b}+Z_{c}} \\\\\\
+2 Z_{1}&= \frac{2Z_{a}Z_{b}+\cancel{Z_{a}Z_{c}}-\cancel{Z_{a}Z_{c}}+\cancel{Z_{c}Z_{b}}-\cancel{Z_{c}Z_{b}}}{Z_{T}} \\\\\\
 Z_{1}&= \frac{2Z_{b}Z_{a}}{2 Z_{T}} = \frac{Z_{a}Z_{b}}{Z_{a}+Z_{b}+Z_{c}}
 \end{align}
 $$
 respectivamente para las otras impedancias de triangulo tendremos:
 $$
 \begin{align}
-Z_{2}&= \frac{Z_{a}Z_{c}}{Z_{a}+Z_{b}+Z_{c}}\\
+Z_{2}&= \frac{Z_{a}Z_{c}}{Z_{a}+Z_{b}+Z_{c}}\\\\\\
 Z_{3}&= \frac{Z_{b}Z_{c}}{Z_{a}+Z_{b}+Z_{c}}
 \end{align}
 $$
 Para hacer el paso de estrella a triangulo vamos a necesitar las relaciones entre las impedancias de estrella para simplificar los pasos:
 $$
 \begin{align}
-\frac{Z_{1}}{Z_{2}} &= \frac{Z_{b}\cancel{Z_{a}}}{\cancel{Z_{a}}Z_{c}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{b}}{Z_{c}}\\
-\frac{Z_{1}}{Z_{3}} &= \frac{Z_{a}\cancel{Z_{b}}}{\cancel{Z_{b}}Z_{c}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{a}}{Z_{c}}\\
+\frac{Z_{1}}{Z_{2}} &= \frac{Z_{b}\cancel{Z_{a}}}{\cancel{Z_{a}}Z_{c}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{b}}{Z_{c}}\\\\\\
+\frac{Z_{1}}{Z_{3}} &= \frac{Z_{a}\cancel{Z_{b}}}{\cancel{Z_{b}}Z_{c}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{a}}{Z_{c}}\\\\\\
 \frac{Z_{2}}{Z_{3}} &= \frac{Z_{a}\cancel{Z_{c}}}{\cancel{Z_{c}}Z_{b}} \frac{\cancel{Z_{a}+Z_{b}+Z_{c}}}{\cancel{Z_{a}+Z_{b}+Z_{c}}} = \frac{Z_{a}}{Z_{b}}
 \end{align}
 $$
 Primero empezamos desde donde terminamos al pasar de triangulo a estrella, y dividimos todo por $Z_{a}$:
 $$
 \begin{align}
-Z_{1}& = \frac{Z_{a}Z_{b}}{Z_{a}+Z_{b}+Z_{c}}\\
+Z_{1}& = \frac{Z_{a}Z_{b}}{Z_{a}+Z_{b}+Z_{c}}\\\\\\
 Z_{1}&= \frac{Z_{b}}{1+Z_{b}/Z_{a}+Z_{c}/Z_{a}}
 \end{align}
 $$
 remplazando por las relaciones calculadas antes:
 $$
 \begin{align}
-Z_{1}&= \frac{Z_{b}}{1 + Z_{3}/Z_{2}+ Z_{3}/Z_{1}}\\
-Z_{1} \left(1 + \frac{Z_{3}}{Z_{2}}+ \frac{Z_{3}}{Z_{1}}\right) &= Z_{b}\\
-Z_{b}&= \left(Z_{1}+Z_{3}+ \frac{Z_{3}Z_{1}}{Z_{2}}\right)\\
+Z_{1}&= \frac{Z_{b}}{1 + Z_{3}/Z_{2}+ Z_{3}/Z_{1}}\\\\\\
+Z_{1} \left(1 + \frac{Z_{3}}{Z_{2}}+ \frac{Z_{3}}{Z_{1}}\right) &= Z_{b}\\\\\\
+Z_{b}&= \left(Z_{1}+Z_{3}+ \frac{Z_{3}Z_{1}}{Z_{2}}\right)\\\\\\
 Z_{b}&= \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{2}}
 \end{align}
 $$
 para las otras 2 impedancias de estrella obtendremos:
 $$
 \begin{align}
-Z_{a} = \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{3}}\\
+Z_{a} = \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{3}}\\\\\\
 Z_{c} = \frac{Z_{1}Z_{2}+Z_{3}Z_{2}+Z_{1}Z_{3}}{Z_{1}}
 \end{align}
 $$
@@ -381,13 +381,13 @@ p = \frac{V_{Th}R}{R_{Th}+R} \frac{V_{Th}}{R_{Th}+R} = \frac{V_{Th}^{2}R}{(R_{Th
 $$
 y esta función llegara a un máximo cuando $dp/dR=0$, entonces:
 $$
-\begin{align*}
-\frac{V_{Th}^{2}(R_{Th}+R)^2-2V_{Th}^{2}R(R_{Th}+R)}{(R_{Th}+R)^{4}} &= 0\\
-(R_{Th}+R)^{2}-2R(R+R_{Th}) &=0\\
-(R_{Th}+R)^{2} &= 2R(R+R_{Th})\\
-(R_{Th}+\cancel{R}) &= \cancel2R\\
+\begin{align}
+\frac{V_{Th}^{2}(R_{Th}+R)^2-2V_{Th}^{2}R(R_{Th}+R)}{(R_{Th}+R)^{4}} &= 0\\\\\\
+(R_{Th}+R)^{2}-2R(R+R_{Th}) &=0\\\\\\
+(R_{Th}+R)^{2} &= 2R(R+R_{Th})\\\\\\
+(R_{Th}+\cancel{R}) &= \cancel2R\\\\\\
 R_{Th} &= R
-\end{align*}
+\end{align}
 $$
 Por lo tanto la potencia maxima se alcanza cuando $R=R_{Th}$ y remplazando encontramos la potencia maxima transferida:
 $$
@@ -416,19 +416,19 @@ Nos interesa saber la corriente para $t>0$, donde el circuito es basicamente:
 
 Para encontrar esto, aplicamos ley de Kirchhoff de los voltajes, y encontramos:
 $$
-\begin{align*}
-v_{L}(t)+ v_{R}(t) &= 0\\
-L \frac{di(t)}{dt}+Ri(t)&=0\\
+\begin{align}
+v_{L}(t)+ v_{R}(t) &= 0\\\\\\
+L \frac{di(t)}{dt}+Ri(t)&=0\\\\\\
  \frac{di(t)}{dt}+ \frac{R}{L}i(t) &=0
-\end{align*}
+\end{align}
 $$
 para resolver esta ecuacion diferencial despejamos y definimos $\tau = L/R$ :
 $$
-\begin{align*}
-\int\frac{di(t)}{i(t)} &=\int -\frac{R}{L}dt\\\\
-\ln|i(t)| &= - \frac{t}{\tau} + k\\
+\begin{align}
+\int\frac{di(t)}{i(t)} &=\int -\frac{R}{L}dt\\\\\\\\\\\\
+\ln|i(t)| &= - \frac{t}{\tau} + k\\\\\\
 i(t) &= e^{k}e^{-\frac{t}{\tau}}=A e^{-t/\tau}
-\end{align*}
+\end{align}
 $$
 entonces vemos que la respuesta decrece exponencial-mente desde un valor $A$. Para encontrar este valor debemos ver el estado inicial de el elemento almacenador de energia, y usar la condicion de continuidad para el parametro correspondiente, en este caso para $t=0$ encontramos que para que se satisfaga la condicion de continuidad la malla debe tener:
 $$
@@ -456,9 +456,9 @@ podemos ver el voltaje en cada elemento de la figura como:
 
 Se puede demostrar que la energia acumulada en el inductor es la misma que la disipada en la resistencia:
 $$
-\begin{align*}
+\begin{align}
 W_{L}= \frac{1}{2}L i_{0}^{2}- \frac{1}{2}L i^{2} && W_{R}=\int_{0}^{t}Ri^{2}dt
-\end{align*}
+\end{align}
 $$
 
 #### Constante De Tiempo $\tau$
@@ -483,10 +483,10 @@ Entonces en $t=0$ apretamos el interruptor conectando el capacitor al resistor.
 
 Desde este momento en adelante la energia almacenada en el capacitor se empieza a disipar en el resistor, si queremos ver como evoluciona el voltaje en el tiempo entonces debemos aplicar ley de kirchhoff de los voltajes a la malla:
 $$
-\begin{align*}
-v_{C}(t)+v_{R}(t)&=0\\
+\begin{align}
+v_{C}(t)+v_{R}(t)&=0\\\\\\
 v_{C}(t) + Ri(t) &=0
-\end{align*}
+\end{align}
 $$
  y como podemos expresar la corriente como:
 $$
@@ -548,10 +548,10 @@ $$x(t) = x_{p}(t)+ x_{n}(t) = \frac{1}{A} e^{-\frac{Bt}{A}} \int F\cdot e^{\frac
 
 Analizamos el circuito aplicando ley de Kirchhoff de los voltajes, para llegar a:
 $$
-\begin{align*}
-V_{L}+V_{R}&= V_{s}\\
+\begin{align}
+V_{L}+V_{R}&= V_{s}\\\\\\
 L \frac{di(t)}{dt}+ Ri(t) &= V_{s}
-\end{align*}
+\end{align}
 $$
 Cuya solucion tiene dos partes, una natural obtenida resolviendo la ecuación homogénea, la cual sera transitoria y se disipara en el tiempo, y otra forzada la cual esta dada por la respuesta en regimen permanente y sera estable en el tiempo. La respuesta natural sera:
 $$
@@ -592,11 +592,11 @@ $$
 
 Analizamos el circuito por ley de Kirchhoff de los voltajes y vemos que:
 $$
-\begin{align*}
-V_{s} &= V_{R}+V_{C}\\
-V_{s} &= Ri_{c}+ V_{c}\\
+\begin{align}
+V_{s} &= V_{R}+V_{C}\\\\\\
+V_{s} &= Ri_{c}+ V_{c}\\\\\\
 V_{s}&=  R C \frac{dV_{c}}{dt}+V_{c}
-\end{align*}
+\end{align}
 $$
 Cuya solucion tiene dos partes, una natural obtenida resolviendo la ecuación homogénea, la cual sera transitoria y se disipara en el tiempo, y otra forzada la cual esta dada por la respuesta en regimen permanente y sera estable en el tiempo. La respuesta natural sera:
 $$
@@ -641,9 +641,9 @@ v_{f}=v_{R}+v_{L}+v_{C}
 $$
 y como la misma corriente circula por todos los elementos podemos ver esto en terminos de corriente:
 $$
-\begin{align*}
-v_{f}&= R i(t)+ L \frac{di(t)}{dt} + \frac{1}{C}\int i(t) dt\\
-\end{align*}
+\begin{align}
+v_{f}&= R i(t)+ L \frac{di(t)}{dt} + \frac{1}{C}\int i(t) dt\\\\\\
+\end{align}
 $$
 derivando respecto a la corriente llegamos a la ecuacion difierencial homogenea de segundo orden:
 $$
@@ -793,10 +793,10 @@ pero en el caso de una señal sino o coseno sera nulo, por lo que lo calcularemo
 ![](ZImages/Pasted%20image%2020220630135407.png)
 Por lo tanto lo calculamos como:
 $$
-\begin{align*}
-i_{m} &= \frac{2}{T} \int_{0}^{\frac{T}{2}} I_{max}\sin(\omega t) dt = \frac{2I_{max}}{T} \int_{0}^{\frac{T}{2}}\sin(\omega t) dt\\
+\begin{align}
+i_{m} &= \frac{2}{T} \int_{0}^{\frac{T}{2}} I_{max}\sin(\omega t) dt = \frac{2I_{max}}{T} \int_{0}^{\frac{T}{2}}\sin(\omega t) dt\\\\\\
 &= \frac{2I_{max}}{T} \left|- \frac{1}{\omega} \cos(\omega t) \right|_{0}^{\frac{T}{2}}= \frac{2}{\pi} I_{max} \approx 0.6366\cdot I_{max}
-\end{align*}
+\end{align}
 $$
 
 ## Valor Eficaz Y Factor De Forma
@@ -807,13 +807,13 @@ x_{eff}  = \sqrt{\frac{1}{T} \int_{0}^{T} x(t)^{2} dt}
 $$
 en el caso de una señal sinusoidal como por ejemplo una corriente alterna:
 $$
-\begin{align*}
-i_{eff} &= \sqrt{\frac{1}{T} \int_{0}^{T}I_{max}^{2} \sin^{2}(\phi +\omega t)} \\
-&= \sqrt{\frac{1}{2\pi}I_{max}^{2} \int_{0}^{2\pi} \sin^{2}(u)\  d(u)} & u&=\omega t\\
-&=  \sqrt{\frac{1}{2\pi}I_{max}^{2} \left(\int_{0}^{2\pi} \frac{1}{2} du+ \int_{0}^{2\pi} \frac{1}{2}\cos(2u) \right) } & \sin^{2}u&= \frac{1-\cos(2u)}{2} \\
-&=  \sqrt{\frac{1}{4\pi}I_{max}^{2} 2\pi}= \sqrt{\frac{I_{max}^{2}}{2}} \\
+\begin{align}
+i_{eff} &= \sqrt{\frac{1}{T} \int_{0}^{T}I_{max}^{2} \sin^{2}(\phi +\omega t)} \\\\\\
+&= \sqrt{\frac{1}{2\pi}I_{max}^{2} \int_{0}^{2\pi} \sin^{2}(u)\  d(u)} & u&=\omega t\\\\\\
+&=  \sqrt{\frac{1}{2\pi}I_{max}^{2} \left(\int_{0}^{2\pi} \frac{1}{2} du+ \int_{0}^{2\pi} \frac{1}{2}\cos(2u) \right) } & \sin^{2}u&= \frac{1-\cos(2u)}{2} \\\\\\
+&=  \sqrt{\frac{1}{4\pi}I_{max}^{2} 2\pi}= \sqrt{\frac{I_{max}^{2}}{2}} \\\\\\
 &= {\frac{I_{max}}{\sqrt{2}} }
-\end{align*}
+\end{align}
 $$
 es el valor en continuo en el cual el area bajo la curva es la misma que la de la función original, en esta aplicación significa que el valor eficaz de una corriente alterna es el valor de corriente continua que en la misma resistencia disipa la misma energía en igual periodo de tiempo.
 
@@ -845,9 +845,9 @@ Donde podemos ver que $I_{max}R= V_{max}$ y que $\phi_{i}=\phi_v$
 
 por consiguiente los valores sinusoidales de la corriente y la tensión en una resistencia son:
 $$
-\begin{align*}
+\begin{align}
 I = I_{max} \sin(\omega t+ \phi_{i})= \frac{V_{max}}{R}sin(\omega t +\phi_i)  && V = V_{max} \sin(wt+\phi_{i})
-\end{align*}
+\end{align}
 $$
 ![](ZImages/Pasted%20image%2020220405145317.png)
 misma fase, diferente amplitud.
@@ -913,10 +913,10 @@ donde $\vec V=-jX_{c}\vec I$
 
 A su vez se puede pensar en la corriente por ley de ohm como en dominio de frecuencia donde:
 $$
-\begin{align*}
-\vec I &= \frac{\vec V}{-jX_{c}}= \frac{V_{max}}{X_{c}}\angle\phi_{v}+90 \\
+\begin{align}
+\vec I &= \frac{\vec V}{-jX_{c}}= \frac{V_{max}}{X_{c}}\angle\phi_{v}+90 \\\\\\
 i(t) &= \frac{V_{max}}{X_{c}}\sin(\omega t+\phi_{v}+90)
-\end{align*}
+\end{align}
 $$
 y como $X_{c}=1/\omega C$ llegamos a lo mismo.
 
@@ -962,10 +962,10 @@ pero si tomamos $\phi_{i}$ como referencia tendremos:
 ![](ZImages/Pasted%20image%2020220311171359.png)
 Empezamos analizando el circuito sabiendo que esta expuesto a una fuente de voltaje de $v(t)=V_{max}\sin(\omega t+\phi_{v})$, y aplicando la ley de Kirchhoff de los voltajes podemos ver que:
 $$
-\begin{align*}
-v(t) &= v_{R}+v_{C}\\
+\begin{align}
+v(t) &= v_{R}+v_{C}\\\\\\
 V_{max}\sin(\omega t+\phi_{v}) &= R i(t)+ \frac{1}{C}\int i(t)dt 
-\end{align*}
+\end{align}
 $$
 si pasamos esto al dominio de frecuencia vemos que:
 $$
@@ -1007,10 +1007,10 @@ lo que podemos relacionar con el triangulo de impedancias ya que este sera el mi
 Vemos por ley de Kirchhoff de los voltajes que:
 $$
 \begin{align}
-\vec V &= \vec V_{R}+\vec V_{L}+\vec V_{C}\\
-&= \vec I R + jL\omega\vec I - \frac{j}{C\omega}\vec I \\
-\vec V&= \vec I (R+ j(L\omega - 1/C\omega)) \\
-&= \vec I (R+ j(\underbrace{X_{L} - X_{C}}_X))\\
+\vec V &= \vec V_{R}+\vec V_{L}+\vec V_{C}\\\\\\
+&= \vec I R + jL\omega\vec I - \frac{j}{C\omega}\vec I \\\\\\
+\vec V&= \vec I (R+ j(L\omega - 1/C\omega)) \\\\\\
+&= \vec I (R+ j(\underbrace{X_{L} - X_{C}}_X))\\\\\\
 &= \vec I \vec Z
 \end{align}
 $$
@@ -1096,10 +1096,10 @@ i(t) = i_{p}+i_{n}= \frac{V_{max}}{\sqrt{R^{2}+\omega^{2}L^{2}}} \sin(\omega t+\
 $$
 y encontramos soluciones particulares resolviendo para las condiciones iniciales, por ejemplo si en $t=0$ tenemos $i=0$, resolviendo nos queda:
 $$
-\begin{align*}
-i(0^{+})=0&= \frac{V_{max}}{\sqrt{R^{2}+\omega^{2}L^{2}}} \sin(\phi_{v}-\phi)+ K\\
+\begin{align}
+i(0^{+})=0&= \frac{V_{max}}{\sqrt{R^{2}+\omega^{2}L^{2}}} \sin(\phi_{v}-\phi)+ K\\\\\\
 K &= - \frac{V_{max}}{\sqrt{R^{2}+\omega^{2}L^{2}}} \sin(\phi_{v}-\phi)
-\end{align*}
+\end{align}
 $$
 y remplazando en la ecuación nos queda:
 $$
@@ -1145,11 +1145,11 @@ En resumen la potencia consta de dos terminos, $P$ es la potencia constante sumi
 Al producto $VI$ que es igual a la amplitud de la potencia fluctuante lo llamamos **Potencia Aparente** $S$, entre las potencias existen las siguientes relaciones:
 
 $$
-\begin{align*}
-P &= VI \cos\varphi = S \cos\varphi \\
-Q &= VI \sin\varphi = S \sin\varphi \\
-S&= \sqrt{P^{2}+Q^{2}}\\
-\end{align*}
+\begin{align}
+P &= VI \cos\varphi = S \cos\varphi \\\\\\
+Q &= VI \sin\varphi = S \sin\varphi \\\\\\
+S&= \sqrt{P^{2}+Q^{2}}\\\\\\
+\end{align}
 $$
 Otra forma de ver a la potencia aparente como termino fluctuante, entonces tomando el voltaje como referencia nos queda:
 $$
@@ -1184,9 +1184,9 @@ $$U = RI \implies I= \frac{U}{R}= \frac{U}{R }\angle0 $$
 y esto corresponde a:
 
 $$
-\begin{align*}
+\begin{align}
 u(t) = \sqrt 2 V\cos(\omega t)&& i(t)=\sqrt 2 I\cos\omega t&& U=RI&&\phi=0
-\end{align*}
+\end{align}
 $$
 
 ![](ZImages/Pasted%20image%2020220407155129.png)
@@ -1246,11 +1246,11 @@ $$
 De ahí sacamos el valor de corriente eficaz y el angulo de la corriente como:
 
 $$
-\begin{align*}
-I &= \frac{U_{m}}{\sqrt{R^{2}+\omega^{2}L^{2}}} \\
+\begin{align}
+I &= \frac{U_{m}}{\sqrt{R^{2}+\omega^{2}L^{2}}} \\\\\\
 
 \phi_{i}&=\phi_{v}-\phi 
-\end{align*}
+\end{align}
 $$
 con estos datos calculamos la potencia instantánea en el dominio de tiempo en el circuito como:
 
@@ -1265,20 +1265,20 @@ $$
 y podemos desarrollar esto para esto usando la identidad trigonométrica que todos tanto queremos:
 
 $$
-\begin{align*}
-p(t) &= 2VI \frac{cos(2\omega t-\phi )+\cos(\phi)}{2}\\
-&= VI \cos\phi + VI \cos(2\omega t-\phi)\\
+\begin{align}
+p(t) &= 2VI \frac{cos(2\omega t-\phi )+\cos(\phi)}{2}\\\\\\
+&= VI \cos\phi + VI \cos(2\omega t-\phi)\\\\\\
 
-\end{align*}
+\end{align}
 $$
 De donde podemos usar otra identidad trigonométrica para expandir el termino fluctuante $VI\cos(2\omega t-\phi)$:
 
 $$
-\begin{align*}
-p(t) &= VI \cos(\phi) + VI(\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t))\\
-&= \underbrace{VI\cos(\phi)}_{P} (1+\cos(2\omega t))+ \underbrace{VI\sin(\phi)}_{Q} \sin(2\omega t)\\
+\begin{align}
+p(t) &= VI \cos(\phi) + VI(\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t))\\\\\\
+&= \underbrace{VI\cos(\phi)}_{P} (1+\cos(2\omega t))+ \underbrace{VI\sin(\phi)}_{Q} \sin(2\omega t)\\\\\\
 &= P(1+\cos(2\omega t))+ Q\sin(2\omega t) 
-\end{align*}
+\end{align}
 $$
 
 Podemos ver que la potencia instantánea queda compuesta por dos partes una fluctuante (Potencia Aparente $S$)  con magnitud igual a $IV$ y una parte constante en el tiempo la cual es igual a la potencia activa $P$ con magnitud igual a $IV\cos(\phi)$, por lo tanto podemos ver la potencia en el tiempo como:
@@ -1297,13 +1297,13 @@ A partir de lo cual podemos ver que la potencia reactiva viene de la reactancia 
 utilizando estos dos diagramas vemos que:
 
 $$
-\begin{align*}
-R &= |Z| \cos\phi & X&=|Z|\sin\phi\\
-P &= |S| \cos\phi & Q&=|S|\sin\phi\\
- &= |V||I| \cos\phi & &= |V||I| \sin\phi\\
- &= |I^{2}||Z|\cos\phi & &= |I^{2}||Z| \sin\phi\\
+\begin{align}
+R &= |Z| \cos\phi & X&=|Z|\sin\phi\\\\\\
+P &= |S| \cos\phi & Q&=|S|\sin\phi\\\\\\
+ &= |V||I| \cos\phi & &= |V||I| \sin\phi\\\\\\
+ &= |I^{2}||Z|\cos\phi & &= |I^{2}||Z| \sin\phi\\\\\\
  &= |I^{2}|R & &= |I^{2}| X
-\end{align*}
+\end{align}
 $$
 
 ### Explicacion Del Apunte
@@ -1317,10 +1317,10 @@ donde circula una corriente $i(t)= I_{max}\sin(\omega t)$, con un voltaje respec
 planteamos entonces la potencia instantanea en el circuito como:
 
 $$
-\begin{align*}
-p(t)&= v(t)i(t) &&\\
+\begin{align}
+p(t)&= v(t)i(t) &&\\\\\\
 &= V_{max}I_{max}\sin(\omega t)\sin(\omega t+\phi)
-\end{align*}
+\end{align}
 $$
 llegado a este punto utilizamos la propiedad trigonometrica:
 $$
@@ -1328,19 +1328,19 @@ $$
 $$
 para llegar a:
 $$
-\begin{align*}
-p(t) &= I_{max}V_{max} \sin(\omega t)(\sin (\omega t)\cos(\phi)+\cos(\omega t)\sin (\phi))\\
+\begin{align}
+p(t) &= I_{max}V_{max} \sin(\omega t)(\sin (\omega t)\cos(\phi)+\cos(\omega t)\sin (\phi))\\\\\\
 &= I_{max}V_{max}\cos(\phi)\sin^{2}(\omega t)+I_{max}V_{max}\sin\phi\cos(\omega t)\sin(\omega t)
-\end{align*}
+\end{align}
 $$
 y volviendo a utilizar la misma propiedad trigonometrica:
 
 $$
-\begin{align*}
-\sin(2a)&=\sin(a+a) = \sin(a)\cos(a)+\sin(a)\cos(a)\\
-\sin(2a)&=2 \sin(a)\cos(a)\\
+\begin{align}
+\sin(2a)&=\sin(a+a) = \sin(a)\cos(a)+\sin(a)\cos(a)\\\\\\
+\sin(2a)&=2 \sin(a)\cos(a)\\\\\\
 \frac{\sin(2a)}{2}&=\sin(a)\cos(a)
-\end{align*}
+\end{align}
 $$
 por lo tanto $\cos(\omega t)\sin (\omega t)= \sin(2\omega t)/2$, y con esto finalmente llegamos a:
 
@@ -1369,9 +1369,9 @@ ademas dado que sabemos que el factor potencia es $fp=\cos(\phi)$, y esto se pue
 
 Entonces podemos decir que $\cos(\phi)= R/Z$, y por lo tanto substituyendo tenemos:
 $$
-\begin{align*}
-P = VI\cos(\phi) &= I^{2}Z \frac{R}{Z}=I^{2}R\\
-\end{align*} 
+\begin{align}
+P = VI\cos(\phi) &= I^{2}Z \frac{R}{Z}=I^{2}R\\\\\\
+\end{align} 
 $$
 y si pensamos en el voltaje que pasa por la resistencia este seria $V_{R}=RI= R\ V/Z$, por lo tanto si despejamos el voltaje desde aca vamos a tener: $V = V_{R}Z/R$, y remplazando en la formula para potencia activa:
 
@@ -1458,11 +1458,11 @@ $$
 por lo tanto la ecuacion nos queda:
 
 $$
-\begin{align*}
- U \angle \phi_{u} &= \bar I |Z| \angle-\phi\\
-\frac{U\angle\phi_{u}}{\sqrt{R^{2}+ \frac{1}{\omega^{2}C^{2}}}\angle-\phi} &=  \bar I\\
+\begin{align}
+ U \angle \phi_{u} &= \bar I |Z| \angle-\phi\\\\\\
+\frac{U\angle\phi_{u}}{\sqrt{R^{2}+ \frac{1}{\omega^{2}C^{2}}}\angle-\phi} &=  \bar I\\\\\\
 \bar I&= \sqrt 2  \frac{U}{\sqrt{R^{2}+ \frac{1}{\omega^{2}C^{2}}}}\angle\phi_{u}+\phi
-\end{align*}
+\end{align}
 $$
 desde donde sacamos el valor eficaz de corriente y el angulo de la corriente igualando la fase y el modulo de ambos lados de la ecuacion.
 
@@ -1479,20 +1479,20 @@ $$
 y desarrollando esto usando la identidad trigonometrica esa:
 
 $$
-\begin{align*}
-p(t) &= 2VI \frac{\cos(2\omega t+\phi)+\cos\phi}{2}\\
+\begin{align}
+p(t) &= 2VI \frac{\cos(2\omega t+\phi)+\cos\phi}{2}\\\\\\
 &= 2VI \cos\phi +2 VI \cos(2\omega t+\phi)
-\end{align*}
+\end{align}
 $$
 donde este segundo podemos expandir el termino fluctuante usando
 $\cos(a+b) = \cos(a)\cos(b)-\sin(a)\sin(b)$ y quedamos con:
 
 $$
-\begin{align*}
-p(t)&= VI\cos(\phi)+ VI (\cos\phi \cos(2\omega t)-\sin\phi\sin(2\omega t))\\
-&= \underbrace{VI\cos(\phi)}_{P} (1+\cos(2\omega t))- \underbrace{VI\sin(\phi)}_{Q} \sin(2\omega t)\\
+\begin{align}
+p(t)&= VI\cos(\phi)+ VI (\cos\phi \cos(2\omega t)-\sin\phi\sin(2\omega t))\\\\\\
+&= \underbrace{VI\cos(\phi)}_{P} (1+\cos(2\omega t))- \underbrace{VI\sin(\phi)}_{Q} \sin(2\omega t)\\\\\\
 &= P(1+\cos(2\omega t))- Q\sin(2\omega t)
-\end{align*}
+\end{align}
 $$
 Podemos ver que la potencia instantanea queda compuesta por dos partes, una fluctuante (la potencia aparente $S$) con magnitud igual a $VI$ y una parte constante en el tiempo la cual es la potencia media con el mismo valor que la potencia activa $P = IV\cos(\phi)$ por lo que podemos ver la potencia en el tiempo como:
 
@@ -1503,13 +1503,13 @@ ademas podemos dibujar el triangulo de potencias escribiendo la potencia aparent
 a partir de donde podemos ver que la potencia reactiva viene de la reactancia y que la parte activa viene de la resistencia, usando el triangulo de impedancia vemos que:
 
 $$
-\begin{align*}
-R &= |Z| \cos\phi & X&=|Z|\sin\phi\\
-P &= |S| \cos\phi & Q&=|S|\sin\phi\\
- &= |V||I| \cos\phi & &= |V||I| \sin\phi\\
- &= |I^{2}||Z|\cos\phi & &= |I^{2}||Z| \sin\phi=|I^{2}|X\\
+\begin{align}
+R &= |Z| \cos\phi & X&=|Z|\sin\phi\\\\\\
+P &= |S| \cos\phi & Q&=|S|\sin\phi\\\\\\
+ &= |V||I| \cos\phi & &= |V||I| \sin\phi\\\\\\
+ &= |I^{2}||Z|\cos\phi & &= |I^{2}||Z| \sin\phi=|I^{2}|X\\\\\\
  &= |I^{2}|R & &= -|I^{2}| X_{C}
-\end{align*}
+\end{align}
 $$
 
 teniendo en cuenta que $X=X_{L}-X_{C}$ y en este caso $X_L =0$.
@@ -1533,13 +1533,13 @@ $$
 por lo tanto la potencia sera:
 
 $$
-\begin{align*}
-p(t) &= v(t)i(t)\\
-&= V_{max}I_{max}\sin(\omega t)\sin(\omega t-\phi)\\
-&= V_{max}I_{max}\sin(\omega t)(\sin \omega t \cos\phi - \cos\omega t \sin\phi)\\
-&= V_{max}I_{max}(\sin^{2}\omega t\cos \phi - \sin\omega t\cos\omega t \sin \phi)\\
+\begin{align}
+p(t) &= v(t)i(t)\\\\\\
+&= V_{max}I_{max}\sin(\omega t)\sin(\omega t-\phi)\\\\\\
+&= V_{max}I_{max}\sin(\omega t)(\sin \omega t \cos\phi - \cos\omega t \sin\phi)\\\\\\
+&= V_{max}I_{max}(\sin^{2}\omega t\cos \phi - \sin\omega t\cos\omega t \sin \phi)\\\\\\
 &= V_{max}I_{max}\left(\sin^{2}\omega t\cos\phi - \frac{\sin(2\omega t)}{2} \sin\phi\right)
-\end{align*}
+\end{align}
 $$
 Donde el primer termino: $V_{max}I_{max}\sin^{2}\omega t \cos\phi$ es igual al encontrado en el circuito $RL$, y representa la potencia activa que se disipa en la resisitencia.
 
@@ -1558,10 +1558,10 @@ $$
 Si tomamos los valores eficaces $V = V_{max}/\sqrt2$ y $I=I_{max}/\sqrt{2}$ , entonces expandiendo y aplicando la propiedad trigonometrica de suma de cosenos $\cos(a+b)=\cos(a)\cos(b)-\sin(a)\sin(b)$ quedamos con:
 
 $$
-\begin{align*}
-p(t) &= VI \cos\phi - VI[\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t)]\\
+\begin{align}
+p(t) &= VI \cos\phi - VI[\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t)]\\\\\\
 &= VI\cos(\phi)- \cos(2\omega t-\phi)
-\end{align*}
+\end{align}
 $$
 lo que podemos representar graficamente como:
 
@@ -1591,13 +1591,13 @@ Desde esto podemos deducir que cuando $\phi$ sea positivo, tendremos $\omega L >
 Calcularemos la potencia una vez mas como:
 
 $$
-\begin{align*}
-p(t) &= v(t)i(t)\\
-&= V_{max}I_{max}\sin(\omega t)\sin(\omega t+\phi)\\
-&= V_{max}I_{max}\sin(\omega t)(\sin \omega t \cos\phi + \cos\omega t \sin\phi)\\
-&= V_{max}I_{max}(\sin^{2}\omega t\cos \phi + \sin\omega t\cos\omega t \sin \phi)\\
+\begin{align}
+p(t) &= v(t)i(t)\\\\\\
+&= V_{max}I_{max}\sin(\omega t)\sin(\omega t+\phi)\\\\\\
+&= V_{max}I_{max}\sin(\omega t)(\sin \omega t \cos\phi + \cos\omega t \sin\phi)\\\\\\
+&= V_{max}I_{max}(\sin^{2}\omega t\cos \phi + \sin\omega t\cos\omega t \sin \phi)\\\\\\
 &= V_{max}I_{max}\left(\sin^{2}\omega t\cos\phi + \frac{\sin(2\omega t)}{2} \sin\phi\right)
-\end{align*}
+\end{align}
 $$
 Donde el primer termino: $V_{max}I_{max}\sin^{2}\omega t \cos\phi$ , tendra 
 llegara a su valor maximo en $V_{max}I_{max}\cos(\phi)$, y tendra un valor medio de $V_{max}I_{max}\cos(\phi)/2$ , yrepresenta la potencia activa que se disipa en la resisitencia.
@@ -1619,7 +1619,7 @@ ademas dado que sabemos que el factor potencia es $fp=\cos(\phi)$, y esto se pue
 Entonces podemos decir que $\cos(\phi)= R/Z$, y por lo tanto substituyendo tenemos:
 
 $$
-\begin{align*} P = VI\cos(\phi) &= I^{2}Z \frac{R}{Z}=I^{2}R\\ \end{align*}  
+\begin{align} P = VI\cos(\phi) &= I^{2}Z \frac{R}{Z}=I^{2}R\\\\\\ \end{align}  
 $$
 
 y si pensamos en el voltaje que pasa por la resistencia este seria $V_{R}=RI= R\ V/Z$, por lo tanto si despejamos el voltaje desde aca vamos a tener: $V = V_{R}Z/R$, y remplazando en la formula para potencia activa:
@@ -1669,10 +1669,10 @@ $$
 Desarrollando el termino fluctuante $VI\cos(\omega t -\phi)$ quedamos con:
 
 $$
-\begin{align*}
-S =VI \cos(\omega t -\phi) &= VI (\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t))\\
+\begin{align}
+S =VI \cos(\omega t -\phi) &= VI (\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t))\\\\\\
 &= \underbrace{VI\cos(\phi)}_{P} \cos(2\omega t)+ \underbrace{VI\sin(\phi)}_{Q}\sin(2\omega t)
-\end{align*}
+\end{align}
 $$
 
 donde $P$ es la **Potencia Activa** y $Q$ es la **Potencia Reactiva**, descompusimos la potencia fluctuante en dos terminos, el de potencia activa con pulsacion $2\omega$ y el de potencia reactiva el cual esta retrasado $90°$ respecto al anterior y tambien es de pulsacion $2\omega$.
@@ -1680,11 +1680,11 @@ donde $P$ es la **Potencia Activa** y $Q$ es la **Potencia Reactiva**, descompus
 Al producto $VI$ resultante de la amplitud de la potencia fluctuante queda llamado como **Potencia Aparente**:
 
 $$
-\begin{align*}
-S &= VI=\sqrt{P^{2}+Q^{2}}\\
-P &= S\cos(\phi)\\
+\begin{align}
+S &= VI=\sqrt{P^{2}+Q^{2}}\\\\\\
+P &= S\cos(\phi)\\\\\\
 Q &= S\sin(\phi)
-\end{align*}
+\end{align}
 $$
 
 ![](ZImages/Pasted%20image%2020220705104746.png)
@@ -1692,9 +1692,9 @@ $$
 La potencia aparente puede tambien ser encontrada como:
 
 $$
-\begin{align*}
+\begin{align}
 S = VI && S=IZ I =I^{2}Z&& S=V \frac{V}{Z}= \frac{V^{2}}{Z}
-\end{align*}
+\end{align}
 $$
 
 Es importante destacar que las expresiones son modulares (no 
@@ -1713,7 +1713,7 @@ $$
 Desarrollando el termino fluctuante $VI\cos(\omega t -\phi)$ quedamos con:
 
 $$
-\begin{align*} S =VI \cos(\omega t -\phi) &= VI (\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t))\\ &= \underbrace{VI\cos(\phi)}_{P} \cos(2\omega t)+ \underbrace{VI\sin(\phi)}_{Q}\sin(2\omega t) \end{align*}  
+\begin{align} S =VI \cos(\omega t -\phi) &= VI (\cos(\phi)\cos(2\omega t)+\sin(\phi)\sin(2\omega t))\\\\\\ &= \underbrace{VI\cos(\phi)}_{P} \cos(2\omega t)+ \underbrace{VI\sin(\phi)}_{Q}\sin(2\omega t) \end{align}  
 $$
 
 donde P es la **Potencia Activa** y Q es la **Potencia Reactiva**, descompusimos la potencia fluctuante en dos terminos normales, el de potencia activa con pulsacion $2\omega$ y el de potencia reactiva el cual esta retrasado 90° respecto al anterior y tambien es de pulsacion $2\omega$, podemos representar 
@@ -1731,9 +1731,9 @@ Esto tambien se puede representar mediante un numero complejo al igual que $\vec
 donde:
 
 $$
-\begin{align*}
+\begin{align}
 S = \sqrt{P^{2}+Q^{2}} &&\text{y}&& \phi = \tan^{-1}\left(\frac{Q}{P}\right)
-\end{align*}
+\end{align}
 $$
 
 ### Potencia Compleja
@@ -1743,13 +1743,13 @@ Podremos tambien pensar en la deduccion de la potencia compleja de la siguiente 
 Dado un voltaje $\vec V = Ve^{j(\theta+\phi)}$ y una corriente $\vec I = I e^{j\theta}$, enconces encontramos la potencia compleja como:
 
 $$
-\begin{align*}
-\vec S &= \vec V\vec I^{*}\\
-&= Ve^{j\phi+\theta} I e^{-j\theta}\\
-&= VI e^{j\phi}\\
-&= P +jQ\\
+\begin{align}
+\vec S &= \vec V\vec I^{*}\\\\\\
+&= Ve^{j\phi+\theta} I e^{-j\theta}\\\\\\
+&= VI e^{j\phi}\\\\\\
+&= P +jQ\\\\\\
 &= I^{2}R+j I^{2}X
-\end{align*}
+\end{align}
 $$
 
 ## Corrección Del Factor De Potencia
@@ -1782,9 +1782,9 @@ Ese angulo sera reducido a  $\phi'$ cuando agreguemos el elemento capacitivo.
 ![](ZImages/Pasted%20image%2020220306103148.png)
 
 $$
-\begin{align*}
+\begin{align}
 V = V\angle 0 && I_{L}=I_L \angle-\phi && I_{C}= \frac{V}{Z}= \frac{V\angle 0}{-j} C\omega = VC\omega\angle90 = I_{C}\angle 90°
-\end{align*}
+\end{align}
 $$
 por ley de Kirchhoff de las corrientes podemos ver que la corriente total es igual a la corriente de la carga inductiva mas la corriente del elemento capacitivo:
 
@@ -1801,20 +1801,20 @@ la razon por la que los signos de la parte imaginaria de la corriente total y ca
 Obtenemos entonces dos ecuaciones, una para la parte real y otra para la parte imaginaria.
 
 $$
-\begin{align*}
-I_{T}\cos\phi' &= I_{L}\cos\phi\\
+\begin{align}
+I_{T}\cos\phi' &= I_{L}\cos\phi\\\\\\
 -I_{T}\sin\phi' &= -I_{L}\sin\phi + I_{C}
-\end{align*}
+\end{align}
 $$
 y como queremos encontrar la corriente capacitiva necesaria para modificar angulo $\phi$ a $\phi'$ despejamos para encontrar $I_{C}$:
 
 $$
-\begin{align*}
-I_{T} &= I_{L} \frac{\cos\phi}{\cos\phi'}\\
-I_{C} &= - I_{T} \sin\phi' + I_{L}\sin\phi\\
-&= - I_{L}\cos\phi \tan\phi' + I_{L}\sin\phi\\
+\begin{align}
+I_{T} &= I_{L} \frac{\cos\phi}{\cos\phi'}\\\\\\
+I_{C} &= - I_{T} \sin\phi' + I_{L}\sin\phi\\\\\\
+&= - I_{L}\cos\phi \tan\phi' + I_{L}\sin\phi\\\\\\
 &= I_{L}\cos\phi(\tan\phi-\tan\phi')
-\end{align*}
+\end{align}
 $$
 por lo que teniendo en cuenta que $I_{C}=V\omega C$ podemos calcular la capacitancia necesaria como:
 
@@ -1825,11 +1825,11 @@ $$
 y la potencia reactiva de esta capacitance es:
 
 $$
-\begin{align*}
-Q_{C} &= Im\{V \cdot I^{*}_{C}\}= Im\{ V\angle 0 \cdot I\angle-90\}=-VI\\
+\begin{align}
+Q_{C} &= Im\{V \cdot I^{*}_{C}\}= Im\{ V\angle 0 \cdot I\angle-90\}=-VI\\\\\\
 |Q_C| &= V I_{C} = V I_{L} \cos(\tan \varphi-\tan\varphi')\implies P(\tan \varphi-\tan\varphi') = Q_C
 
-\end{align*}
+\end{align}
 $$
 
 ### Metodo Del Apunte
@@ -1843,9 +1843,9 @@ Hacemos esto ya que al corregir el factor de potencia disminuimos $S(S=VI)$ y po
 A partir del triangulo de potencias podemos observar que:
 
 $$
-\begin{align*}
+\begin{align}
 Q_{i} =P \tan \phi_{i}&&\text{y que}&& Q_{f}=P\tan\phi_{f}
-\end{align*}
+\end{align}
 $$
 por lo tanto dado que $Q_{C}$ es la potencia reactiva que nos lleva de $Q_{i}$ a $Q_{f}$ podemos decir que:
 
@@ -1860,10 +1860,10 @@ $$
 por lo tanto:
 
 $$
-\begin{align*}
-V^{2}\omega C &= P(\tan \phi_{i}-\tan \phi_{f})\\
+\begin{align}
+V^{2}\omega C &= P(\tan \phi_{i}-\tan \phi_{f})\\\\\\
 C&= \frac{P(\tan \phi_{i}-\tan \phi_{f})}{V^{2}\omega}
-\end{align*}
+\end{align}
 $$
 
 ## Calculo De Corriente De Neutro
@@ -1876,20 +1876,20 @@ Para estudiar este circuito tomaremos el neutro de la alimentacion como tension 
 
 Las tensiones de cada carga son iguales respectivamente a:
 $$
-\begin{align*}
-V_{RN'}&=V_{RN}-V_{N'N}\\
-V_{SN'}&=V_{SN}-V_{N'N}\\
+\begin{align}
+V_{RN'}&=V_{RN}-V_{N'N}\\\\\\
+V_{SN'}&=V_{SN}-V_{N'N}\\\\\\
 V_{TN'}&=V_{TN}-V_{N'N}
-\end{align*}
+\end{align}
 $$
 de este modo las corrientes de cada linea son el voltaje en la carga sobre la impedancia de la carga:
 
 $$
-\begin{align*}
-I_{R}&= \frac{V_{RN}-V_{N'N}}{Z_{R}}\\
-I_{S}&= \frac{V_{SN}-V_{N'N}}{Z_{T}}\\
-I_{T}&= \frac{V_{TN}-V_{N'N}}{Z_{S}}\\
-\end{align*}
+\begin{align}
+I_{R}&= \frac{V_{RN}-V_{N'N}}{Z_{R}}\\\\\\
+I_{S}&= \frac{V_{SN}-V_{N'N}}{Z_{T}}\\\\\\
+I_{T}&= \frac{V_{TN}-V_{N'N}}{Z_{S}}\\\\\\
+\end{align}
 $$
 y en el neutro entonces tendremos la corriente: 
 
@@ -1899,13 +1899,13 @@ $$
 ahora por ley de kirchoff de las corrientes:
 
 $$
-\begin{align*}
-I_{R}+I_{S}+I_{T}&=I_{N}\\
-\frac{V_{RN}-V_{N'N}}{Z_{R}}+\frac{V_{SN}-V_{N'N}}{Z_{S}}+\frac{V_{TN}-V_{N'N}}{Z_{T}} &= \frac{V_{N'N}}{Z_{N}}\\
-\frac{V_{RN}}{Z_{R}}+\frac{V_{SN}}{Z_{S}}+\frac{V_{TN}}{Z_{T}} &= V_{N'N} \left(\frac{1}{Z_{N}}+ \frac{1}{Z_{R}}+ \frac{1}{Z_{S}}+ \frac{1}{Z_{T}}\right)\\
-\frac{\frac{V_{RN}}{Z_{R}}+\frac{V_{SN}}{Z_{S}}+\frac{V_{TN}}{Z_{T}}}{Y_{R}+Y_{S}+Y_{T}+Y_{N}} &=V_{N'N}\\
+\begin{align}
+I_{R}+I_{S}+I_{T}&=I_{N}\\\\\\
+\frac{V_{RN}-V_{N'N}}{Z_{R}}+\frac{V_{SN}-V_{N'N}}{Z_{S}}+\frac{V_{TN}-V_{N'N}}{Z_{T}} &= \frac{V_{N'N}}{Z_{N}}\\\\\\
+\frac{V_{RN}}{Z_{R}}+\frac{V_{SN}}{Z_{S}}+\frac{V_{TN}}{Z_{T}} &= V_{N'N} \left(\frac{1}{Z_{N}}+ \frac{1}{Z_{R}}+ \frac{1}{Z_{S}}+ \frac{1}{Z_{T}}\right)\\\\\\
+\frac{\frac{V_{RN}}{Z_{R}}+\frac{V_{SN}}{Z_{S}}+\frac{V_{TN}}{Z_{T}}}{Y_{R}+Y_{S}+Y_{T}+Y_{N}} &=V_{N'N}\\\\\\
 \frac{U_{RN}Y_{R}+U_{SN}Y_{S}+U_{TN}Y_{T}}{Y_{R}+Y_{S}+Y_{T}+Y_{N}} &=V_{N'N}
-\end{align*}
+\end{align}
 $$
 
 La tension $V_{N'N}$ es denominada **Tension de desplazamiento del neutro**, y usando este dato podemos volver a las ecuaciones de corriente en cada linea para remplazar y luego sumando las corrientes de linea encontrar la corriente de neutro.
@@ -1948,19 +1948,19 @@ $$
 esta potencia es la misma sea que este en triangulo o estrella ya que en triangulo:
 
 $$
-\begin{align*}
-V_{f}= \frac{V_{l}}{\sqrt3} && I_{f}=I_{l}\\
+\begin{align}
+V_{f}= \frac{V_{l}}{\sqrt3} && I_{f}=I_{l}\\\\\\
 &P=3I_{f}V_{f}= \frac{3}{\sqrt 3}I_{l}V_{l}
-\end{align*}
+\end{align}
 $$
 
 Mientras que en estrella:
 
 $$
-\begin{align*}
-V_{f}=V_{l} && I_{f}= \frac{I_{l}}{\sqrt3}\\
+\begin{align}
+V_{f}=V_{l} && I_{f}= \frac{I_{l}}{\sqrt3}\\\\\\
 &P=3I_{f}V_{f}= \frac{3}{\sqrt3}I_{l}V_{l}
-\end{align*}
+\end{align}
 $$
 
 de modo análogo la potencia activa o media total es:
@@ -1984,18 +1984,18 @@ $$
 es mas facil de comprender usando potencia compleja, por ejemplo supone que los fasores de tension son dados por:
 
 $$
-\begin{align*}
+\begin{align}
 V_{1}=V_{1}\angle \alpha && V_{2}=V_{2}\angle \beta && V_{3}=V_{3}\angle\gamma
-\end{align*}
+\end{align}
 $$
 con los fasores de corriente simples:
 
 $$
-\begin{align*}
+\begin{align}
 I_{1}= I_{1}\angle(\alpha - \phi_{1}) &&
 I_{2}= I_{2}\angle(\beta - \phi_{2}) &&
 I_{3}= I_{3}\angle(\gamma - \phi_{3})
-\end{align*}
+\end{align}
 $$
 la potencia compleja de una fase viene dada por  $\bar S_{F}= \bar U_{F} \bar I_{F}^{*}$.
 
@@ -2007,14 +2007,14 @@ $$
 y si se tiene en cuenta cada componente esto nos deja con:
 
 $$
-\begin{align*}
+\begin{align}
 \bar S =& 
 (V_{1}I_{1}\cos\phi_{1}+jV_{1}I_{1}\sin\phi_{1})+
 (V_{2}I_{2}\cos\phi_{2}+jV_{2}I_{2}\sin\phi_{2})
-\\&+
+\\\\\\&+
 (V_{3}I_{3}\cos\phi_{3}+jV_{3}I_{3}\sin\phi_{3})
 
-\end{align*}
+\end{align}
 $$
 o como:
 
@@ -2032,33 +2032,33 @@ $$
 Considerando que tenemos las tensiones:
 
 $$
-\begin{align*}
-u_{1}(t)&=\sqrt2 V_{F}\cos\omega t\\
-u_{2}(t)&=\sqrt2 V_{F}\cos(\omega t-120°)\\
+\begin{align}
+u_{1}(t)&=\sqrt2 V_{F}\cos\omega t\\\\\\
+u_{2}(t)&=\sqrt2 V_{F}\cos(\omega t-120°)\\\\\\
 u_{3}(t)&=\sqrt2 V_{F}\cos(\omega t+120°)
-\end{align*}
+\end{align}
 $$
 y sean las corrientes de la forma:
 
 $$
-\begin{align*}
-i_{1}(t) &= \sqrt2 I_{F}\cos(\omega t-\phi)\\
-i_{2}(t) &= \sqrt2 I_{F}\cos(\omega t-120°-\phi)\\
+\begin{align}
+i_{1}(t) &= \sqrt2 I_{F}\cos(\omega t-\phi)\\\\\\
+i_{2}(t) &= \sqrt2 I_{F}\cos(\omega t-120°-\phi)\\\\\\
 i_{3}(t) &= \sqrt2 I_{F}\cos(\omega t+120°-\phi)
-\end{align*}
+\end{align}
 $$
 que corresponden a una carga equilibrada, en le que $\phi$ indica el argumento de la impedancia de cada fase, entonces la potencia total es:
 
 $$
-\begin{align*}
-p(t) &= \sum\limits_{k=1}^{3}u_{k}(t)i_{k}(t)\\
+\begin{align}
+p(t) &= \sum\limits_{k=1}^{3}u_{k}(t)i_{k}(t)\\\\\\
 &= 2V_{F}I_{F}[
 \cos(\omega t)\cos(\omega t-\phi)+
-\cos(\omega t-120°)\cos(\omega t-120°-\phi)\\
+\cos(\omega t-120°)\cos(\omega t-120°-\phi)\\\\\\
 &\ \ \ +
 \cos(\omega t+120°)\cos(\omega t+120°-\phi)
 ]
-\end{align*}
+\end{align}
 $$
 y haciendo uso de la propiedad trigonometrica $\cos x\cos y = \frac{1}{2}(\cos(x+y)+ \cos(x-y))$ quedamos con:
 
@@ -2084,38 +2084,38 @@ Dada una carga equilibrada con 3 resistencias iguales conectadas en estrella
 ![](ZImages/Pasted%20image%2020220707095309.png)
 donde tenemos:
 $$
-\begin{align*}
-v_{ao}&= V_{max}\cos(\omega t)\\
-i_{ao}&= I_{max}\cos(\omega t)\\
-v_{bo}&= V_{max}\cos(\omega t- 120°)\\
-i_{bo}&= I_{max}\cos(\omega t-120°)\\
-v_{co}&= V_{max}\cos(\omega t+ 120°)\\
+\begin{align}
+v_{ao}&= V_{max}\cos(\omega t)\\\\\\
+i_{ao}&= I_{max}\cos(\omega t)\\\\\\
+v_{bo}&= V_{max}\cos(\omega t- 120°)\\\\\\
+i_{bo}&= I_{max}\cos(\omega t-120°)\\\\\\
+v_{co}&= V_{max}\cos(\omega t+ 120°)\\\\\\
 i_{co}&= I_{max}\cos(\omega t+ 120°)
-\end{align*}
+\end{align}
 $$
 sabemos que la potencia total sera 
 $$
-\begin{align*}
-p(t)&= p_{1}(t)+p_{2}(t)+p_{3}(t)\\
-&= V_{max}I_{max}\cos^{2}(\omega t)+V_{max}I_{max} \cos^{2}(\omega t-120°)+V_{max}I_{max} \cos^{2}(\omega t+120°)\\
+\begin{align}
+p(t)&= p_{1}(t)+p_{2}(t)+p_{3}(t)\\\\\\
+&= V_{max}I_{max}\cos^{2}(\omega t)+V_{max}I_{max} \cos^{2}(\omega t-120°)+V_{max}I_{max} \cos^{2}(\omega t+120°)\\\\\\
 &= V_{max}I_{max}\big(\cos^{2}(\omega t)+(\cos(\omega t)\cos(120°)+\sin(\omega t)\sin(120°))^{2}+ (\cos(\omega t)\cos(120°)-\sin(\omega t)\sin(120°))^{2} \big)
-\end{align*}
+\end{align}
 $$
 esto viene de la identidad trigonometrica: $\cos(a+b) = \cos(a)\cos(b)-\sin(a)\sin(b)$
 Desarrollando los cuadrados de los binomios, y simplificando teniendo en cuenta que $\cos(120°)=\cos(-120) = -0.5$ y que $\sin(120°)= \sqrt3/2$
 por lo tanto quedamos con:
 $$
-\begin{align*}
+\begin{align}
 p(t) &= V_{max}I_{max}\left(\cos^{2}(\omega t)+ \frac{1}{2^{2}}\cos^{2}(\omega t))+2\cos(\omega t)\sin(\omega t) + \left(\frac{\sqrt3}
-{2}\right)^{2}\sin^{2}(\omega t)\right)\\
+{2}\right)^{2}\sin^{2}(\omega t)\right)\\\\\\
 &\ \ \ \ - V_{max}I_{max} \left(\frac{1}{2^{2}}\cos^{2}(\omega t))-2\cos(\omega t)\sin(\omega t) + \left(\frac{\sqrt3}
-{2}\right)^{2}\sin^{2}(\omega t) \right) \\
+{2}\right)^{2}\sin^{2}(\omega t) \right) \\\\\\
 &= V_{max}I_{max} \left(\cos^{2} \omega t+ \frac{2}{2^{2}} \cos^{2}\omega t+2 \left(\frac{\sqrt3}
-{2}\right)^{2}\sin^{2}\omega t \right)\\
+{2}\right)^{2}\sin^{2}\omega t \right)\\\\\\
 &= V_{max}I_{max}\left(\frac{3}{2} \cos^{2}\omega t 
- + \frac{3}{2}\sin^{2}\omega t \right)\\
+ + \frac{3}{2}\sin^{2}\omega t \right)\\\\\\
 &= \frac{3}{2} V_{max}I_{max} (\cos^{2}\omega t+\sin^{2}\omega t)= \frac{3}{2}V_{max}I_{max}
-\end{align*}
+\end{align}
 $$
 Con voltajes eficientes esto se vuelve $p(t)= 3VI$, esta resolución fue hecha con $\cos(\phi)=1$, es decir $\phi=0$, pero esto también se cumple para cualquier otro tipo de carga, por lo que podemos escribir:
 
@@ -2135,21 +2135,21 @@ pero en los sistemas trifasicos con cargas equilibradas esta sera constante $p(t
 En este caso las potencias activas y reactivas se calculan sumando escalarmente fase a fase.
 
 $$
-\begin{align*}
-P &= V_{1N}I_{1}\cos\phi_{1}+V_{2N}I_{2}\cos\phi_{2}+V_{3N}I_{3}\cos\phi_{3}\\
-Q &=V_{1N}I_{1}\sin\phi_{1}+V_{2N}I_{2}\sin\phi_{2}+V_{3N}I_{3}\sin\phi_{3} \\
+\begin{align}
+P &= V_{1N}I_{1}\cos\phi_{1}+V_{2N}I_{2}\cos\phi_{2}+V_{3N}I_{3}\cos\phi_{3}\\\\\\
+Q &=V_{1N}I_{1}\sin\phi_{1}+V_{2N}I_{2}\sin\phi_{2}+V_{3N}I_{3}\sin\phi_{3} \\\\\\
 \vec S&= P+jQ= S\angle \phi
-\end{align*}
+\end{align}
 $$
 
 #### Conexion Estrella Equilibrada
 
 $$
-\begin{align*}
-V_{1N'}&=V_{2N'}=V_{3N'}=V_{f}\\
-I_{1}&=I_{2}=I_{3}=I_{f}\\
+\begin{align}
+V_{1N'}&=V_{2N'}=V_{3N'}=V_{f}\\\\\\
+I_{1}&=I_{2}=I_{3}=I_{f}\\\\\\
 \cos(\phi_{1}) &= \cos(\phi_{2})=\cos(\phi_{3})=\cos(\phi)
-\end{align*}
+\end{align}
 $$
 Y la potencia sera:
 
@@ -2160,31 +2160,31 @@ $$
 con $I_{f}=I_{l}$ y $V_{f}=V_{l}/\sqrt3$  por lo tanto en términos de los voltajes y corrientes de linea tendremos:
 
 $$
-\begin{align*}
-P &= \sqrt3 V_{l}I_{l}\cos\phi\\
-Q &= \sqrt3 V_{l}I_{l}\sin\phi\\
+\begin{align}
+P &= \sqrt3 V_{l}I_{l}\cos\phi\\\\\\
+Q &= \sqrt3 V_{l}I_{l}\sin\phi\\\\\\
 S &= \sqrt3 V_{l}I_{L}
-\end{align*}
+\end{align}
 $$
 
 #### Triangulo Desequilibrado
 
 $$
-\begin{align*}
-P &= V_{12}I_{12}\cos\phi_{12}+V_{23}I_{23}\cos\phi_{23}+V_{31}I_{31}\cos\phi_{31}\\
-Q &=V_{12}I_{12}\sin\phi_{12}+V_{23}I_{23}\sin\phi_{3}+V_{31}I_{31}\sin\phi_{31} \\
+\begin{align}
+P &= V_{12}I_{12}\cos\phi_{12}+V_{23}I_{23}\cos\phi_{23}+V_{31}I_{31}\cos\phi_{31}\\\\\\
+Q &=V_{12}I_{12}\sin\phi_{12}+V_{23}I_{23}\sin\phi_{3}+V_{31}I_{31}\sin\phi_{31} \\\\\\
 \vec S&= P+jQ= S\angle \phi
-\end{align*}
+\end{align}
 $$
 
 #### Triangulo Equilibrado
 
 $$
-\begin{align*}
-V_{12}&=V_{23}=V_{31}=V_{f}\\
-I_{12}&=I_{23}=I_{31}=I_{f}\\
+\begin{align}
+V_{12}&=V_{23}=V_{31}=V_{f}\\\\\\
+I_{12}&=I_{23}=I_{31}=I_{f}\\\\\\
 \cos(\phi_{12}) &= \cos(\phi_{23})=\cos(\phi_{31})=\cos(\phi)
-\end{align*}
+\end{align}
 $$
 donde la potencia sera:
 
@@ -2269,9 +2269,9 @@ $$
 $$
 por lo tanto, podemos introducir la en la ecuacion al substituir lo que esta entre parentesis:
 $$
-\begin{align*}
+\begin{align}
 \frac{\omega}{\omega_{0}} - \frac{\omega_{0}}{\omega} &= \delta +1 - \frac{1}{\delta+1}  = \frac{(\delta+1)^{2}-1}{\delta+1} = \delta \frac{\delta+2}{\delta+1}
-\end{align*}
+\end{align}
 $$
 lo que nos deja con:
 $$
@@ -2544,12 +2544,12 @@ Analizamos este circuito por el metodo de mallas, donde vamos a usar la siguient
 
 Lo que nos deja con el sistema de ecuaciones $V=ZI$:
 $$
-\begin{align*}
-E_{1} &= Z_{11}I_{1}+ Z_{12}I_{2}+\cdots+Z_{1n}I_{n} \\
-E_{2} &= Z_{21}I_{1}+ Z_{22}I_{2}+\cdots+Z_{2n}I_{n} \\
-\vdots   \ \   &= \ \ \  \ \vdots \space \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ddots \ \  \ \ \ \ \ \ \ \ \  \ \ \ \ \vdots\\
+\begin{align}
+E_{1} &= Z_{11}I_{1}+ Z_{12}I_{2}+\cdots+Z_{1n}I_{n} \\\\\\
+E_{2} &= Z_{21}I_{1}+ Z_{22}I_{2}+\cdots+Z_{2n}I_{n} \\\\\\
+\vdots   \ \   &= \ \ \  \ \vdots \space \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ddots \ \  \ \ \ \ \ \ \ \ \  \ \ \ \ \vdots\\\\\\
 E_{n}&= Z_{n1}I_{1}+ Z_{n2}I_{2}+\cdots+Z_{nn}I_{n}
-\end{align*}
+\end{align}
 $$
 como este es un sistema de $n$ ecuaciones con $n$ incógnitas, si aplicamos la restricción de que que no hallas fuentes independientes dentro:
 $$
@@ -2557,34 +2557,34 @@ E_3 =E_4 =\cdots = E_n = 0
 $$
 Y la restriccion que las mallas $1$ y $2$ asomen al exterior:
 $$
-\begin{align*}
+\begin{align}
 E_{1}=V_{1}&&E_{2}=V_{2}
-\end{align*}
+\end{align}
 $$
 Entonces el sistema queda:
 $$
-\begin{align*}
-V_{1} &= Z_{11}I_{1}+ Z_{12}I_{2}+\cdots+Z_{1n}I_{n} \\
-V_{2} &= Z_{21}I_{1}+ Z_{22}I_{2}+\cdots+Z_{2n}I_{n} \\
-0 &= Z_{31}I_{1}+ Z_{32}I_{2}+\cdots+Z_{3n}I_{n} \\
-\vdots   \ \   &= \ \ \  \ \vdots \space \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ddots \ \  \ \ \ \ \ \ \ \ \  \ \ \ \ \vdots\\
+\begin{align}
+V_{1} &= Z_{11}I_{1}+ Z_{12}I_{2}+\cdots+Z_{1n}I_{n} \\\\\\
+V_{2} &= Z_{21}I_{1}+ Z_{22}I_{2}+\cdots+Z_{2n}I_{n} \\\\\\
+0 &= Z_{31}I_{1}+ Z_{32}I_{2}+\cdots+Z_{3n}I_{n} \\\\\\
+\vdots   \ \   &= \ \ \  \ \vdots \space \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ddots \ \  \ \ \ \ \ \ \ \ \  \ \ \ \ \vdots\\\\\\
 0&= Z_{n1}I_{1}+ Z_{n2}I_{2}+\cdots+Z_{nn}I_{n}
-\end{align*}
+\end{align}
 $$
 Desde donde podemos resolver con regla de Cramer como:
 $$
 I_{1} = 
 \frac{\left|\begin{matrix}
-V_{1} & Z_{12} & Z_{13} & \cdots & Z_{1n} \\ 
-V_{2} & Z_{22} & Z_{23} & \cdots & Z_{2n} \\
-0     & Z_{32} & Z_{33} & \cdots & Z_{3n} \\
-\vdots &  & \ddots &  & \vdots \\ 
+V_{1} & Z_{12} & Z_{13} & \cdots & Z_{1n} \\\\\\ 
+V_{2} & Z_{22} & Z_{23} & \cdots & Z_{2n} \\\\\\
+0     & Z_{32} & Z_{33} & \cdots & Z_{3n} \\\\\\
+\vdots &  & \ddots &  & \vdots \\\\\\ 
 0     & Z_{n2} & Z_{n3} & \cdots & Z_{nn}
 \end{matrix}\right|}{\left|\begin{matrix}
-Z_{11} & Z_{12} & Z_{13} & \cdots & Z_{1n} \\ 
-Z_{21} & Z_{22} & Z_{23} & \cdots & Z_{2n} \\
-Z_{31}     & Z_{32} & Z_{33} & \cdots & Z_{3n} \\
-\vdots &  & \ddots &  & \vdots \\ 
+Z_{11} & Z_{12} & Z_{13} & \cdots & Z_{1n} \\\\\\ 
+Z_{21} & Z_{22} & Z_{23} & \cdots & Z_{2n} \\\\\\
+Z_{31}     & Z_{32} & Z_{33} & \cdots & Z_{3n} \\\\\\
+\vdots &  & \ddots &  & \vdots \\\\\\ 
 Z_{n1}     & Z_{n2} & Z_{n3} & \cdots & Z_{nn}
 \end{matrix}\right|
 }
@@ -2598,21 +2598,21 @@ I_2 = V_1 \frac{\Delta_{12}}{\Delta} + V_2 \frac{\Delta_{22}}{\Delta}
 $$
 Y dado que el determinante va a tener la dimensión de $Z^n$ y el cofactor la dimension de $Z^{n-1}$ entonces cada una de estas razones multiplicando los voltajes en los terminales tendran la dimencion de $1/Z=Y$ de admitancia:
 $$
-\begin{align*}
+\begin{align}
 \frac{\Delta_{11}}{\Delta} = y_{11} && \frac{\Delta_{12}}{\Delta} = y_{21} && \frac{\Delta_{21}}{\Delta} = y_{12} &&
 \frac{\Delta_{22}}{\Delta} = y_{22}
-\end{align*}
+\end{align}
 $$
  por lo que podemos escribir las ecuaciones para las corrientes como:
 $$
-\begin{align*}
-I_{1}&= y_{11}V_{1}+y_{12}V_{2}\\
+\begin{align}
+I_{1}&= y_{11}V_{1}+y_{12}V_{2}\\\\\\
 I_{2} &= y_{21}V_{1}+ y_{22}V_{2}
-\end{align*}
+\end{align}
 \implies 
-\begin{bmatrix}I_{1} \\ I_{2}\end{bmatrix}
-=\underbrace{\begin{bmatrix}y_{11} & y_{12} \\ y_{21} & y_{22}\end{bmatrix}}_Y
-\begin{bmatrix}V_1 \\ V_{2}\end{bmatrix}
+\begin{bmatrix}I_{1} \\\\\\ I_{2}\end{bmatrix}
+=\underbrace{\begin{bmatrix}y_{11} & y_{12} \\\\\\ y_{21} & y_{22}\end{bmatrix}}_Y
+\begin{bmatrix}V_1 \\\\\\ V_{2}\end{bmatrix}
 $$
 donde a la matriz $Y$ la llamamos matriz admitancia del cuadripolo, y esta esta compuesta por los **parametros** $y_{11}, y_{12}, y_{21}$ y $y_{22}$, y en base a estos parametros podemos obtener las corrientes en funcion de las tensiones.
 
@@ -2633,19 +2633,19 @@ Estos parametros se pueden obtener de dos formas:
 
 Para la medicion por calculo se deben obtener los parametros $Y$ a partir de las ecuaciones:
 $$
-\begin{align*}
-I_{1}&= y_{11}V_{1}+y_{12}V_{2}\\
+\begin{align}
+I_{1}&= y_{11}V_{1}+y_{12}V_{2}\\\\\\
 I_{2} &= y_{21}V_{1}+ y_{22}V_{2}
-\end{align*}
+\end{align}
 $$
 Donde vamos a calcular las impedancias haciendo 0, los voltajes en cada terminal, es con cada terminal en corto, ya que:
 $$
-\begin{align*}
+\begin{align}
 y_{11} = \left. \frac{I_{1}}{V_{1}} \right|_{V_{2}=0} &&
 y_{12} = \left. \frac{I_{1}}{V_{2}} \right|_{V_{1}=0} &&
 y_{21} = \left. \frac{I_{2}}{V_{1}} \right|_{V_{2}=0} &&
 y_{22} = \left. \frac{I_{2}}{V_{2}} \right|_{V_{1}=0}
-\end{align*}
+\end{align}
 $$
 
 #### Ejemplo
@@ -2658,10 +2658,10 @@ Dejando el segundo terminal en corto podemos encontrar $y_{11}$ y $y_{21}$:
 
 Vamos a ver que como $Y_1$ y $Y_2$ forman un paralelo por el que circula $I_1$ entonces:
 $$
-\begin{align*}
+\begin{align}
 y_{11} = \left. \frac{I_{1}}{V_{1}} \right|_{V_{2}=0}=Y_1+Y_2 
 
-\end{align*}
+\end{align}
 $$
 Y como no circula corriente por $Y_3$ la corriente que pasa por $Y_2$ sera $-I_2=V_1 Y_2$ por lo tanto:
 $$
@@ -2703,10 +2703,10 @@ Esta es el cociente entre el voltaje y la corriente de entrada.
 
 Teniendo en cuenta que los parametros de transmicion son:
 $$
-\begin{align*}
-V_{1}&= A V_{2}+ B I_{2}\\
+\begin{align}
+V_{1}&= A V_{2}+ B I_{2}\\\\\\
 I_{1}&= C V_{2}+ D I_{2}
-\end{align*}
+\end{align}
 $$
 entonces podemos escribir la impedancia de entrada como función de los parámetros de la red, haciendo el cociente entre estas dos funciones de parametros, y luego dividiendo denominador y numerador por $I_2$ para introducir la impedancia de carga $V_2/I_2$ nos queda:
 $$
@@ -2719,10 +2719,10 @@ Esta esta dada por el voltaje y corriente que ingresa al puerto de salida.
 
 Teniendo en cuenta que los parametros de trasmision inversa son:
 $$
-\begin{align*}
-V_{2}&= A' V_{1}+ B' I_{1}\\
+\begin{align}
+V_{2}&= A' V_{1}+ B' I_{1}\\\\\\
 I_{2}&= C' V_{1}+ D' I_{1}
-\end{align*}
+\end{align}
 $$
 Entonces podemos escribir la impedancia de salida como función de los parámetros de la red, haciendo el cociente entre estas dos funciones de parametros y luego multiplicando numerador y denominador por la impedancia de entrada:
 $$
@@ -2737,13 +2737,13 @@ $$
 
 en caso de tener un corto en el terminal de salida $V_2=0$, recordamos que los parametros de impedancia y admitancia eran:
 $$
-\begin{align*}
+\begin{align}
 V_{1}= Z_{11}I_{1}+ Z_{12}I_{2}
 && I_{1}=Y_{11}V_{1}+Y_{12}V_{2}
-\\
+\\\\\\
 V_{2}= Z_{21}I_{1}+Z_{22}I_{2} &&
 I_{2}= Y_{21}V_{1}+Y_{22}V_{2}
-\end{align*}
+\end{align}
 $$
 por lo tanto podemos ver que con $V_2=0$ obtenemos, la admitancia como $y_{11} =I_1/V_1$,  lo que es equivalente a lo que conseguimos sibstituyendo en la ecuacion para la impedancia de entrada:
 $$
@@ -2756,10 +2756,10 @@ $$
 Lo mismo pasa con las salidas pero con el otro terminal:
 
 $$
-\begin{align*}
-Z_{2V} &= \frac{D}{C}= z_{22}\\
+\begin{align}
+Z_{2V} &= \frac{D}{C}= z_{22}\\\\\\
 Z_{2C}&= \frac{B}{A} = \frac{1}{y_{22}}
-\end{align*}
+\end{align}
 $$
 
 Y dado que en cuadripolos simétricos $y_{11} = y_{22}$ and $z_{11}=z_{22}$, We get: $Z_{1V}=Z_{2V}$ and $Z_{1C}=Z_{2C}$ .
@@ -2794,17 +2794,17 @@ Z_{0}= \sqrt{\frac{B}{C}}
 $$
 y si tenemos en cuenta las impedancias de entrada y salida de corte y en vacio:
 $$
-\begin{align*}
+\begin{align}
 Z_{1V} = \frac{B}{D}&& Z_{1C}= \frac{A}{C}&&
 Z_{2V}= \frac{D}{C} && Z_{2C}= \frac{B}{A}
-\end{align*}
+\end{align}
 $$
 Junto con la simetria $A=D$, entonces notamos que el producto de ambas impedancias de entrada es igual al producto de ambas impedancias de salida:
 $$
-\begin{align*}
-z_{1V}z_{1C} = \frac{B}{D} \frac{A}{C}= \frac{B}{C}\\
+\begin{align}
+z_{1V}z_{1C} = \frac{B}{D} \frac{A}{C}= \frac{B}{C}\\\\\\
 z_{2V}z_{2C} = \frac{D}{C} \frac{B}{A} = \frac{B}{C}
-\end{align*}
+\end{align}
 $$
 por lo que podemos finalmente escribir la impedancia imagen tambien como:
 $$
