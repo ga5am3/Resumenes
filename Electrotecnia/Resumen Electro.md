@@ -3513,9 +3513,96 @@ $$
 
 ## Relacion Tension, Corriente, Potencia Y Impedancia Imagen
 
-> No se, No he encontrado de que trata esto
+En un cuadripolo el cociente entre variables de entrada y de salida es llamado **Transferencia**, como cada puerto solo tenemos dos variables vamos a tener 4 posibles transferencias:
 
-# Corrientes Poliarmonicas
+![](https://i.imgur.com/3toyl81.png)
+
+Las inversas de estas relaciones también tienen carácter de transferencia, por lo que vamos a tener 4 de entrada/salida y 4 de salida/entrada.
+
+### Calculo De Transferencias
+
+Para calcular las transferencias de un cuadripolo en funcion de sus parametros, lo mas adecuado es utilizar los parametros de transferencia:
+
+$$
+\begin{align*}
+V_{1} &= AV_{2}+BI_{2}\\
+I_{2}&= CV_{2}+DI_{2}
+\end{align*}
+$$
+podemos ver que obtenemos la transferencia de tensiones al dividir la primera ecuacion por $V_{2}$:
+
+$$
+T_{v} = \frac{V_{1}}{V_{2}}= A +B \frac{I_{2}}{V_{2}} = A+ \frac{B}{Z_{c}}
+$$
+Dividiendo por $I_{2}$ obtenemos la transferencia de impedancia:
+$$
+Z_{12} = \frac{V_{1}}{I_{2}} =A \frac{V_{2}}{V_{1}}+B = A Z_{C}+B
+$$
+Al dividir la segunda ecuación por $I_{2}$ obtenemos la transferencia de corrientes:
+$$
+T_{i} = \frac{I_{1}}{I_{2}}= C \frac{V_{2}}{I_{1}} + D \frac{I_{2}}{I_{2}} = C Z_{C}+D
+$$
+y al dividir esta segunda ecuación por $V_{2}$ obtenemos la transferencia de admitancia:
+$$
+Y_{12} = \frac{I_{1}}{V_{2}}= C+D \frac{I_{2}}{V_{2}}= C + \frac{D}{Z_{C}}
+$$
+
+> sirven para cualquier cuadripolo pasivo
+
+### Transferencia De Impedancia Imagen
+
+Estas son las transferencias de tension o corriente de un cuadripolo pasivo y simetrico, cuando su impedancia de carga es igual a su impedancia imagen, $Z_{C} =Z_{0}$.
+
+sabemos que para la impedancia imagen $Z_{0} = \sqrt{B/C}$ , por lo tanto las ecuaciones de transferencia de voltaje y corriente nos quedan como:
+
+$$
+\begin{align*}
+T_{v}&= A+ \frac{B}{Z_{0}}=A + \frac{B}{\sqrt\frac{B}{C}} = A + \sqrt{B C}\\
+T_{i}&= C Z_{0}+D = C \sqrt{\frac{B}{C}} +D = \sqrt{CB}+D
+\end{align*}
+$$
+pero sabemos que el cuadripolo es simetrico $(A=D)$ y que es pasivo ($A^{2}-BC=1$), por lo tanto podemos substituir $BC$ por $BC = A^{2}-1$ y quedamos con:
+
+$$
+\begin{align*}
+T_{v} &= A+\sqrt{A^{2}-1}\\
+T_{i}&= A+ \sqrt{A^{2}-1}
+\end{align*}
+$$
+esto nos dice que como $V$ y $I$ estan relacionados en cada para de terminales por la misma impedancia $Z_{0}$, deben tener necesariamente la misma relacion, $T_{v}=T_{i}$.
+
+pero cuando hacemos $T_{v}=V_{1}/V_{2}$ estas son magnitudes complejas, por lo tanto:
+
+$$
+T_{v} = \frac{|V_{1}|\angle\beta_{1}}{|V_{2}|\angle \beta_{2}} = \abs{\frac{V_{1}}{V_{2}}} \angle (\beta_{1}-\beta_{2})
+$$
+lo que tambien podemos escribir como:
+$$
+T_{v} = |T_{v}| e^{j\beta} = |T_{v}|(\cos \beta+j\sin(\beta))
+$$
+donde $\beta = \beta_{1}-\beta_{2}$ es lo que vamos a llamar **factor de fase**, y esto nos indica el defasaje entre las tenciones de entrada y salida. $|T_{v}|= |V_{1}/V_{2}|$ es lo que vamos a llamar **razón de atenuación** y nos indica caunto menor es la tension de salida a la de entrada.
+
+si definimos al **factor de atenuacion** $\alpha$ como: $\alpha = \ln|T_{v}|$ entonces podemos escribir la transferencia de voltaje como:
+$$
+T_{v}= |T_{v}|e^{j\beta} = e^{\alpha} e^{j\beta} = e^{\alpha+j\beta} = e^{\gamma}
+$$
+donde $\gamma=\alpha +j\beta$ es lo que se llama **transferencia compleja**.
+
+> Fun Fact: $cosh(\gamma)=A$ 
+
+
+
+### Transferencia de Potencia en impedancia imagen
+
+si tenemos una red de dos puertos simetrica terminada en una impedancia imagen $Z_{0}$, su componente real sera $R_{0}$ y la corriente de salida es $I_{2}$, entonces la potencia en la impedancia de salida sera $P_{2}= V_{2}^{2}/R_{C}=V_{2}^{2}/R_{0}$.
+
+pero en la entrada la potencia sera $P_{1}= V_{1}^{2}/R_{1}=V_{1}^{2}/R_{0}$. por lo tanto la relacion de las potencias sera:
+
+$$
+T_{p} = \frac{P_{1}}{P_{2}} = \frac{V_{1}^{2}}{V_{2}^{2}} = \left(\frac{V_{1}}{V_{2}}\right) = e^{2\gamma}
+$$
+
+## Corrientes Poliarmonicas
 
 Dado un voltaje cuya magnitud en el tiempo sea $x(t)=X_{m}\sin(\omega t+\phi)$ esta informacion se puede representar en el dominio temporal como:
 
