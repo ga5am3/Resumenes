@@ -2,6 +2,10 @@
 
 [TOC]
 
+
+
+> Cualquier Seccion con * probablemente no es necesaria para entender el resto de las cosas
+
 ## Transfer Function and Impulse-Response Function
 
 Un sistema linear de una single input con single output, [Linear time invariant (LTI)](000%20Notes/Linear%20and%20Time%20Invariance%20(LTI)%20Systems.md) system is completely described by a linear differential equation with constant coefficients:
@@ -620,7 +624,89 @@ por lo tanto la curva de la respuesta sera:
 >
 > Tambien se puede ver que la respuesta al integral de la entrada es igual a la respuesta integrada del original, esta es una propiedad de sistemas lineales invariantes en el tiempo
 
+### Sistemas De Segundo Orden
 
+Podemos extender estos conceptos de polos y zeros a los sistemas de segundo orden.
+
+mientras que cambios en los parámetros de un sistema de primer orden solo causan cambios en la velocidad de respuesta, en un sistema de segundo orden estos parámetros pueden cambiar la forma de la respuesta.
+
+![](https://i.imgur.com/CRn23bB.png)
+
+En general vamos a tener $\hspace{0pt}4$ tipos de respuestas:
+![](https://i.imgur.com/C4o3HZh.png)
+
+**Respuesta Sobreamortiguada**: en este caso tenemos dos polos reales en $-\sigma_{1},-\sigma_{2}$ que nos generan una repuesta natural:
+$$
+c(t)=K_{1}e^{-\sigma_{1}t}+K_{2}e^{-\sigma_{2}t}
+$$
+**Respuesta Subamoriguada**: en este caso tenemos dos polos complejos en $-\sigma_{d}\pm j \omega_{d}$
+la respuesta natural por lo tanto sera:
+$$
+c(t) = Ae^{-\sigma_{d} t}\cos(\omega_{d}t-\phi) = B_{1}e^{-\sigma_{d}t}\cos(\omega_{d}t)+B_{2} e^{-\sigma_{d}t}\sin(\omega_{d}t)
+$$
+**Respuesta no amortiguada**: en este caso tenemos polos imaginarios $\pm j\omega_{1}$
+$$
+c(t) = A \cos(\omega_{1}t-\phi) = B_{1} \cos(\omega_{1}t)+B_{2}\sin(\omega_{1}t)
+$$
+**Respuesta criticamente amortiguada**: este este caso ambos polos son reales y iguales $-\sigma_{1}$.
+
+$$
+c(t)=K_{1}e^{-\sigma_{1}t}+K_{2} t e^{-\sigma_{1}t}
+$$
+
+#### Interpretacion Con Dinamica No Linear*
+
+Podemos también entender cada respuesta al formular esto en dominio del tiempo, ya que funcion de transferencia muestra el efecto de una ecuacion diferencial cuyos eigenvalores son correspondientes a los polos en el dominio de frecuencia, podemos entender el funcionamiento de estas respuestas desde los eigenvalores.
+
+podemos trazar un paralelo con los tipos de sistemas lineales que podemos encontrar con sus respectivos [[https://personal.math.ubc.ca/~israel/m215/nonlin/nonlin.html| phase portrait]], dependiendo del tipo de sistema linear que tengamos, podemos encontrar que tipo de sistema lineal tenemos al analizar la traza y el determinante de su matriz $A$:
+
+![](https://i.imgur.com/kwdmkuz.png)
+
+Otra alternativa es encontrar el tipo de punto fijo mediante sus eigenvalores:
+![](https://i.imgur.com/6rpk6kN.png)
+![](https://i.imgur.com/zHXAEHo.png)
+
+y considerando que en este sistema de segundo orden tomamos las variables $x$ y $v= \dot{x}$, entonces proyectando en el eje de las $x$ a medida que la trajectoria se desarrolla en el tiempo obtenemos la posicion en cada momento, mientras que projectando en el eje de las $y$ obtenemos la velocidad en cada momento.
+
+#### Forma General De Los Sistemas De Segundo Orden
+
+Para una mejor descripcion del comportamiento necesitamos definir parametros significativos, para esto vamos a establecer dos cantidades llamadas **frecuencia natural** y **coeficiente de amortiguamiento**.
+
+**Frecuencia Natural** $\omega_{n}$: la frecuencia natural de un sistema de segundo orden es la frecuencia de oscilación del sistema sin amortiguacion.
+
+**Coeficiente de Amortiguacion** $\zeta$: queremos describir esta cantidad como una magnitud de la oscilacion amortiguada independientemente de la escala de tiempo, una manera de definir esto es comparando la frecuencia de decaimiento exponencial con la frecuencia natural, por lo tanto definimos esta cantidad como:
+$$
+\zeta = \frac{\text{Exponential decay frequency}}{\text{Natural Frequency}} = \frac{1}{2\pi} \frac{\text{Natural period(Seconds)}}{\text{Exponential time constant}}
+$$
+ahora apliquemos estas definiciones a nuestro sistema:
+$$
+G(s)= \frac{b}{s^2+as+b}
+$$
+sin damping los polos estarian en los ejes imaginarios, y la respuesta seria una sinusoidal sin amortiguacion, osea los polos serian puramente imaginarios, y para esto tiene que cumplirse que $a=0$ como vimos en el cuadro antes, por lo tanto:
+$$
+G(s) = \frac{b}{s^2+b}
+$$
+por definicion entonces la frecuencia natural es la la frecuencia de oscilacion de este sistema, y como los polos de este sistema estan en el eje imaginario esta frecuencia sera $\pm j\sqrt{ b }$
+$$
+\omega_{n} = \sqrt{ b } \implies b = \omega_{n}^2
+$$
+y dado que los polos complejos tienen una parte real $\sigma= -a/2$ desde aca podemos calcular el coeficiente de amortiguamiento como:
+$$
+\zeta = \frac{|\sigma|}{\omega_{n}} = \frac{a/2}{\omega_{n}}
+$$
+desde donde podemos encontrar:
+$$
+a = 2\zeta\omega_{n}
+$$
+Por lo tanto nuestra funcion de transferencia para un sistema general de segundo orden queda como:
+$$
+G(s) = \frac{\omega_{n}^2}{s^2 + 2\zeta\omega_{n} s+ \omega_{n}^2}
+$$
+y resolviendo para las raices de la ecuacion caracteristica encontramos los valores de los exponenciales que definen el comportamiento del sistema:
+
+$$
+s_{1,2} = -\xi \omega_{n} \pm \omega_{n} \sqrt{ \zeta^2 -1 }
+$$
 
 # Apendix
 
