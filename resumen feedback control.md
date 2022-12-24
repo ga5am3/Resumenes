@@ -453,3 +453,213 @@ es la matrix [Jacobiana](Jacobian%20Matrix) del punto fijo, y este es el analogo
 > no se puede aplicar cuando:
 > - ambos eigenvalores son puros imaginarios
 > - en casos cuando un eigenvalor es 0
+
+
+
+## Transient and Steady-State Response Analysis
+
+la respuesta de un sistema de control consiste en dos partes, la respuesta transitoria y la de estado estable o permanente.
+
+$$
+c(t) = c_{tr}(t)+c_{ss}(t)
+$$
+diseñando un sistema de control debemos ser capaces de predecir el comportamiento dinámico del sistema desde nuestro conocimiento de los componentes. La característica mas importante del comportamiento de un sistema es la **estabilidad**.
+
+un sistema esta en equilibrio si en caso de cualquier disturbacion la salida se mantiene en el mismo estado, un sistema [LTI](000%20Notes/Linear%20and%20Time%20Invariance%20(LTI)%20Systems.md) es **estable** si la salida eventualmente vuelve a su estado de equilibrio cuando al sistema se le da una condicion inicial.
+un sitema es **criticamente estable** si las oscilaciones alrededor del punto de equilibrio duran para siempre, y es **inestable** si la salida diverge sin frontera (bound).
+
+otras características importantes son la estabilidad relativa y el error de estado estable, si la salida en estado estable de un sistema no coincide exactamente con la entrada se dice que el sistema tiene error de estado estable.
+
+### Efecto de Polos y Raices
+
+los **Polos** de una funcion de transferencia son los valores de la variable $s$ que hacen que la funcion de transferencia que tienda a infinito o raices del denominador que sean raices del numerador tambien.
+
+Los **Zeros** de una funcion de transferencia son los valores de la variable $s$ que causan que la funcion de transferencia se vuelva $\hspace{0pt}0$, o que sean raices del numerador y del denominador.
+
+dada una funcion de transferencia:
+
+$$
+G(s) = \frac{s+2}{s+5}
+$$
+podemos obtener las componentes de la respuesta desde los polos y zeros del sistema:
+
+$$
+C(s)=\frac{(s+2)}{s(s+5)} = \frac{A}{s} + \frac{B}{s+5}
+$$
+
+resolviendo con fracciones parciales:
+
+$$
+\begin{align}
+A = \left.\frac{s+2}{s+5}\right|_{s\to0} &= \frac{2}{5} \\
+B = \left.\frac{s+2}{s}\right|_{s\to-5} &= \frac{3}{5} 
+\end{align}
+$$
+por lo tanto:
+$$
+C(s)= \frac{2/5}{s} + \frac{3/5}{s+5}
+$$
+y pasando a dominio del tiempo obtenemos la respuesta:
+$$
+c(t) = \frac{2}{5} + \frac{3}{5}e^{-5t}
+$$
+
+![](https://i.imgur.com/nOz5HdH.png)
+
+El polo de la function de entrada genera la forma de la respuesta forzada, este es el polo en el origen que genera una función escalón en la salida.
+
+el polo de la función de transferencia general la forma de la respuesta natural, la cual se reduce en el tiempo.
+
+el polo en el eje real genera una exponencial de la forma $e^{-\alpha t}$ donde $\alpha$ es la ubicación del polo en el eje real, por lo tanto mientras mas a la izquierda en los números negativos este mas rápido decae a 0.
+
+![](https://i.imgur.com/SNYZ1RD.png)
+
+los zeros y polos definen la amplitud para las respuestas forzada y natural, como podemos ver al calcular $A$ y $B$.
+
+#### Example
+
+si tenemos el sistema:
+![](https://i.imgur.com/Qg0sIDJ.png)
+
+
+la respuesta en el dominio de frecuencia sera:
+$$
+C(s) = \underbrace{ \frac{K_{1}}{s} }_{ \text{Respuesta Forzada} } + \underbrace{ \frac{K_{2}}{s+2} + \frac{K_{3}}{s+4}+ \frac{K_{4}}{s+5} }_{ \text{Respuesta Natural} }
+$$
+lo que corresponde a la siguiente respuesta en dominio del tiempo:
+$$
+c(t) = K_{1}+ K_{2} e^{-2t}+ K_{3}e^{-4t}+ K_{4}e^{-5t}
+$$
+
+### Sistemas De Primer Orden
+
+dado un sistema de primer orden:
+![](https://i.imgur.com/ZuQ0WTa.png)
+
+si la entrada es una funcion escalon $R(s)=\frac{1}{s}$, la respuesta sera:
+$$
+C(s)= R(s)G(s) = \frac{a}{s(s+a)}
+$$
+Taking the inverse transform, la respuesta esta dada por:
+$$
+c(t) = c_{f}(t) + c_{n}(t) = 1-e^{-at}
+$$
+donde el polo de la entrada genera la respuesta forzada $c_{f}(t)=1$, y el polo del sistema en $-a$ genera la respuesta natural $c_{n}(t)=-e^{-a t}$
+
+podemos llamar a $\tau =1/a$ la constante de tiempo.
+
+![](https://i.imgur.com/qLnU1UI.png)
+
+llamamos al parametro $a$ la frecuencia exponencial. y como la derivada de $e^{-at}$ es $-a$, cuando $t=0$ la pendiente inicial es dada por $a$.
+
+para un sistema de primer orden general con $G(s) = K/(s+a)$, y la respuesta escalon es:
+$$
+C(s) = \frac{K}{s(s+a)} = \frac{K/a}{s}- \frac{K/a}{s+a}
+$$
+si podemos identificar $K$ y $a$ desde mediciones entonces podemos obtener la función de transferencia del sistema, podemos hacer esto midiendo la constante de tiempo, $1/a$ es decir el tiempo que tarda en llegar a la amplitud del 63% del valor final, encontrando $a$ de esa manera.
+
+en cambio podemos identificar $K$ una vez que el sistema llegue al regimen permanente ya que en este el sistema tendra el valor de $K/a$.
+
+#### Respuesta a la Entrada Rampa
+
+si en vez de una entrada escalon le damos una entrada rampa:
+![](https://i.imgur.com/VUcrdUu.png)
+
+suponiendo que tenemos el sistema de primer orden:
+
+![](https://i.imgur.com/2oy2hWB.png)
+
+$$
+G(s)= \frac{1}{Ts+1} = \frac{1/T}{s+ 1/T}
+$$
+es igual a nuestra formulacion con $a = \frac{1}{T}$
+la respuesta a la entrada rampa sera:
+$$
+C(s) = \frac{1}{s^2} \frac{1}{Ts+1} = \frac{1}{s^2} - \frac{T}{s} + \frac{T^2}{Ts+1}
+$$
+lo que nos deja con:
+$$
+c(t) = t- T + T e^{-t/\tau}
+$$
+pero al visualizar esto vemos que tenemos un error constante con respecto a la entrada:
+![](https://i.imgur.com/bDK2oJR.png)
+
+este error $e(t)$ esta dado por:
+$$
+\begin{align}
+e(t) & = r(t)- c(t) \\
+	 & = T(1-e^{-t/T})
+\end{align}
+$$
+y a medida que $t$ se hace infinito, el termino $e^{-t/T}$ se hace $\hspace{0pt}0$ $y$ por lo tanto la señal de error se aproxima a $T$.
+$$
+e(\infty)=T
+$$
+
+#### Respuesta al Impulso
+
+dando un impulso unitario al sistema en dominio de frecuencia esto se traduce a $R(s)= 1$, por lo tanto:
+$$
+C(s) = R(s)G(s) = \frac{1}{Ts+1}
+$$
+y la transformada inversa de laplace nos da:
+$$
+c(t) = \frac{1}{T} e^{-t/T},\ \ \text{para }t\geq 0
+$$
+por lo tanto la curva de la respuesta sera:
+![](https://i.imgur.com/eVXB5xB.png)
+
+> Comparando estas respuestas podemos ver que la respuesta a la derivada de una señal de entrada se puede obtener diferenciando la respuesta del sistema a la entrada original.
+> por ejemplo sabemos que la derivada la entrada rampa es la funcion escalon, y dado que la respuesta de la funcion rampa es:
+> $$c(t)=t-T+Te^{-t/T}$$
+> derivando encontramos:
+> $$\frac{d c(t)}{dt} = 1- e^{-t/\tau}$$
+> la cual es la respuesta a la funcion escalon.
+>
+> 
+>
+> Tambien se puede ver que la respuesta al integral de la entrada es igual a la respuesta integrada del original, esta es una propiedad de sistemas lineales invariantes en el tiempo
+
+
+
+# Apendix
+
+
+
+## Partial Fractions 
+
+this is a method to separate the poles of a function.
+
+per example given:
+$$
+\frac{5x-4}{(x-2)(x+1)} = \frac{A}{x-2} + \frac{B}{x+1}
+$$
+then we need to solve this, to do this we multiply by the denominator of the original function:
+$$
+5x-4 = A(x+1) + B(x-2)
+$$
+then we get a system of equations:
+$$
+\begin{align}
+5x & = Ax + Bx \\
+-4 & = A -2B
+\end{align}
+$$
+and we solve it to find $A=2$ and $B=3$, allowing us to rewrite our equation with the poles in different terms:
+$$
+\frac{5x-4}{x^2-x-2} = \frac{2}{x-2} + \frac{3}{x+1}
+$$
+
+### Polos Con Exponentes
+
+$$
+\frac{1}{(x-2)^3} = \frac{A_{1}}{x-2}+ \frac{A_{2}}{(x-2)^2}+ \frac{A_{2}}{(x-2)^3}
+$$
+
+### Polos Cuadraticos
+
+$$
+\frac{1}{(x^2+2x+3)^2} = \frac{B_{1}x+C_{1}}{x^2+2x+3} + \frac{B_{2}x+C_{2}}{(x^2+2x+3)^2}
+$$
+en resumen, para cada polo cuadratico agregar un termino $(Bx+C)/\text{polo}$ y para cada polo normal agregar un termino $A/\text{polo}$, y si un polo esta exponenciado agregar un termino para cada potencia menor o igual al exponente.
+
