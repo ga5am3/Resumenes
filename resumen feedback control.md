@@ -708,6 +708,202 @@ $$
 s_{1,2} = -\xi \omega_{n} \pm \omega_{n} \sqrt{ \zeta^2 -1 }
 $$
 
+**Ejemplo**: Sistema de Servo, en este sistema nosotros queremos controlar la posicion de salida $c$, en vase del torque producido por el controlador $T$ con ganancia $K$, controlado por la diferencia entre la salida actual y la entrada de referencia $r$:
+$$
+\begin{align}
+J \ddot{c}+B \dot{c} & =T \\
+Js^2C(s)+BsC(s) & = T(s)
+\end{align}
+$$
+asi que la funcion de transferencia entre la posicion y el torque es:
+$$
+\frac{C(s)}{T(s)}= \frac{1}{s(Js+B)}
+$$
+![](https://i.imgur.com/wocNmLD.png)
+
+Por lo que podemos reducir el diagrama a:
+![](https://i.imgur.com/16p6yxb.png)
+![](https://i.imgur.com/F56e0ks.png)
+
+y para reducir esto utilizamos la propiedad para reducir systema a uno de lazo abierto, y teninendo en cuenta que en la rama de feedback tenemos $H(s)=1$:
+$$
+\begin{align}
+\frac{C(s)}{R(s)} & = \frac{K / (s^2J+sB)}{ 1+ 1\times K / (s^2J+sB)} \\
+  & = \frac{K}{s^2J+sB+K} & \text{multiplicando y dividiendo por } (s^2J+sB) \\
+  & = \frac{K / J}{ s + \frac{B}{J} s + K/s}
+\end{align}
+$$
+
+#### Respuesta a Impulso De Un Sistema De Segundo Orden
+
+##### Subamortiguado
+
+primero encontramos la respuesta general al sistema de segundo orden dado un pulso:
+$$
+C(s) = \frac{\omega_{n}^2}{s(s^2 + 2 \zeta \omega_{n} s+ \omega_{n}^2)} = \frac{K_{1}}{s} + \frac{K_{2}s+K_{3}}{s^2 + 2\zeta \omega_{n}s+\omega_{n}^2}
+$$
+donde asumimos que $\zeta < 1$, y al expandir utilizando [partial fractions](partial%20fractions.md) entonces encontramos:
+$$
+\begin{align}
+C(s)&= \frac{1}{s} - \frac{s+2\zeta\omega_{n}}{s^2 +2\zeta\omega_{n}s+\omega_{n}^2} \\
+&= \frac{1}{s}- \frac{s+\zeta\omega_{n}}{(s+\zeta\omega_{n})^2+\omega_{d}^2}- \frac{\zeta\omega_{n}}{(s+\zeta\omega_{n})^2+\omega_{d}^2}
+\end{align}
+$$
+donde $\omega_{d}= \omega_{n}\sqrt{ 1-\zeta^2 }$, es la **frecuencia natural amortiguada**.
+
+Y dado que:
+
+| dominio de tiempo | dominio de frecuencia         |
+| ----------------- | ----------------------------- |
+| $\sin(\omega t)$  | $\frac{\omega}{s^2+\omega^2}$ |
+| $\cos(\omega t)$  | $\frac{s}{s^2+\omega^2}$      |
+
+entonces podemos aplicar la transformada inversa de laplace para conseguir la respuesta en el tiempo:
+$$
+\begin{align}
+c(t) &= 1 - e^{-\zeta \omega_{d}t}\left( \cos(\omega_{n}\sqrt{ 1-\zeta^2 }t)+ \frac{\zeta}{\sqrt{ 1-\zeta^2 }}\sin(\omega_{n}\sqrt{1-\zeta^2}t) \right) \\
+&= 1 - \frac{e^{-\zeta\omega_{n}t} }{\sqrt{ 1-\zeta^2 }} \sin(\omega_{n }\sqrt{ 1-\zeta^2} t + \phi)
+\end{align}
+$$
+donde $\phi= \tan^{-1} (\zeta/\sqrt{ 1-\zeta^2 })$.
+
+podemos ver entonces que la frecuencia de oscilacion es la frecuencia natural amortiguada $\omega_{d}$, y varia con el coeficiente de amortiguacion $\zeta$.
+
+La señal de error es:
+$$
+\begin{align}
+e(t) & = r(t)-c(t) \\
+&= 1 - (1 - \frac{e^{-\zeta\omega_{n}t} }{\sqrt{ 1-\zeta^2 }} \cos(\omega_{n }\sqrt{ 1-\zeta^2} t - \phi) ) \\
+&= \frac{e^{-\zeta\omega_{n}t} }{\sqrt{ 1-\zeta^2 }} \cos(\omega_{n }\sqrt{ 1-\zeta^2} t - \phi)
+\end{align}
+$$
+y como podemos ver la señal de error tambien muestra una oscilación amortiguada, por lo que cuando $t=\infty$ el error es inexistente entre la salida $y$ la entrada.
+
+si el coefficiente de amortiguacion $\zeta$ es $\hspace{0pt}0$, entonces la respuesta se vuelve no amortiguada y las oscilaciones continuan indefinidamente.
+$$
+c(t)= 1- \cos\omega_{n}t
+$$
+por lo que tambien podemos ver que las oscilaciones en este caso se producirian a la frecuencia natural, y un incremento en $\zeta$ reducirira la frecuencia natural amortiguada, si $\zeta$ es incrementado por sobre la unidad la respuesta se vuelve sobreamortiguada y la respuesta no oscilara.
+
+**Ejemplo**: Continuando con el ejemplo anterior del sistema de servo, tenemos:
+$$
+\frac{C(s)}{R(s)} = \frac{K}{Js^2+Bs+K}
+$$
+entonces podemos ver que como vimos antes $\omega_{n}= \sqrt{ b }$, y en este caso el valor en esa posicion es $\frac{K}{J}$ por lo tanto:
+$$
+\omega_{n}^2 = \frac{K}{J} 
+$$
+y vimos que $\zeta= \frac{a / 2}{\omega_{n}}$ entonces:
+$$
+\zeta= \frac{a / 2}{\omega_{n}} = \frac{B / J}{2 \sqrt{ K / J}} = \frac{B}{2 \sqrt{ KJ }} 
+$$
+Porque recordando la forma standard de los sistemas de segundo orden:
+$$
+\frac{C(s)}{R(s)} = \frac{\omega_{n}^2}{s^2+2\zeta\omega_{n}s+\omega^2_{n}}
+$$
+
+##### Caso Criticamente Amortiguado
+
+en este caso $\zeta=1$, es decir ambos polos son iguales, entonces para un impulso unitario la respuesta sera:
+$$
+C(s) = \frac{\omega_{n}^2}{(s+\omega_{n}t)^2 s}
+$$
+al aplicar fracciones parciales y la trasformada inversa de laplace nos deja con:
+$$
+c(t) = 1 - e^{-\omega_{n}t} (1+\omega_{n}t) 
+$$
+> Este resultado tambien puede ser obtenido al tomar el limite de la respuesta en el caso subamortiguado cuando $\zeta\to 1$
+> $$
+> \lim_{ \zeta \to 1 } \frac{\sin(\omega_{d}t)}{\sqrt{ 1-\zeta^2 }} = \lim_{ \zeta \to 1 } \frac{\sin\omega_{n}\sqrt{ 1-\zeta^2}t}{\sqrt{ 1-\zeta^2 }}=\omega_{n} t
+> $$
+#### Especificaciones En El Dominio Del Tiempo
+
+Podemos visualizar la grafica de las raices y polos a partir de los parametros $\omega_{n}$ y $\zeta$ como:
+
+![](https://i.imgur.com/01DwT5H.png)
+
+donde llamamos a $\sigma_{d}$ la *frecuencia exponencial amortiguada*.
+
+Podemos describir el comportamiento de la respuesta con parametros temporales:
+![](https://i.imgur.com/MxPCN5S.png)
+donde:
+- el *tiempo de subida* es $t_{r} = (\pi-\beta)/ \omega_{d}$
+- el *tiempo de retardo* es $t_{d}$
+- el *tiempo pico* es $t_{p}$
+- la *Sobreelongacion* es $M_{p}= (c(t_{p}) - c(\infty) ) / c(\infty)$ es decir, que porcentaje de la respuesta en regimen permanente es por la que no pasamos de esta en el pico de la respuesta.
+- el *tiempo de asentamiento* es dependiendo de la tolerancia permitida $t_{s}=4 /(\zeta\omega_{n})$ o $t_{s}= 3 / (\zeta\omega_{n})$ para el $\hspace{0pt}2\%$ y $5 \%$ respectivamente. 
+
+podemos visualizar los efectos que tiene el desplazamiento de las raices observando las siguientes graficas:
+
+![](https://i.imgur.com/nTPHzht.png)
+
+desplazamientos verticales incrementan la frecuencia amortiguada pero mantienen el mismo marco, desplazamientos horizontales mantienen la misma frecuencia pero mientras mas a la izquierda menor overshoot (sobreelongacion), y el desplazamientos a $\hspace{0pt}45°$ mantienen el mismo sobreelongacion pero varia el marco y la frecuencia.
+
+### Sistemas De Orden Superior
+
+la respuesta de los sistemas de orden superior es la suma de las respuestas de los sistemas de primer y segundo orden.
+
+$$
+\frac{C(s)}{R(s)} = \frac{G(s)}{1+G(s)H(s)}
+$$
+![](https://i.imgur.com/Mi0mTTG.png)
+
+en general $G(s)$ y $H(s)$ estan dados por un cociente de polinomios, por lo tanto:
+$$
+\begin{align}
+G(s) = \frac{p(s)}{q(s)} & & H(s)= \frac{n(s)}{d(s)}
+\end{align}
+$$
+donde cada uno de estos: $p(s)$, $q(s)$, $d(s)$, y $n(s)$ son polinomios, entonces la function de transferencia entre la salida y la entrada es:
+$$
+\begin{align}
+\frac{C(s)}{R(s)} & = \frac{p(s)d(s)}{q(s)d(s)+p(s)n(s)} \\
+  & = \frac{b_{0}s^m+b_{1}s^{m-1}+\cdots+b_{m-1}s+b_{m}}{a_{0}s^n+a_{1}s^{n-1}+\cdots + a_{n-1}s+a_{n}}
+\end{align}
+$$
+es nesesario ahora factorizar el denominador, y numerador para encontrar los zeros y polos.
+
+$$
+\frac{C(s)}{R(s)} = \frac{K(s+z_{1})(s+z_{2})\cdots (s+z_{m})}{(s+p_{1})(s+p_{2})\cdots (s+p_{n})}
+$$
+y examinando el comportamiento de este sistema ante un una entrada escalon unitaria, tendremos:
+$$
+C(s) = \frac{a}{s} + \sum_{i=1}^n \frac{a_{i}}{s+p_{i}}
+$$
+donde cada $a_{i}$ es el residuo del polo en $s=-p_{i}$.
+
+en el caso que los polos de $C(s)$ consistan de polos reales y pares de polos complejos, entonces los factores consisten de terminos de primer y segundo orden por lo tanto la respuesta sera:
+$$
+C(s) = \frac{a}{s}+ \sum_{j=1}^q \frac{a_{j}}{s+p_{j}}+ \sum_{k=1}^r \frac{b_{k}(s+\zeta_{k}\omega_{k})+c_{k}\omega_{k}\sqrt{ 1-\zeta^2_{k} }}{s^2+2\zeta_{k}\omega_{k}s+\omega_{k}^2}
+$$
+y desde esta ultima ecuacion vemos que la respuesta de un sistema de orden mayor esta compuesta de terminos involucrando funciones encontradas en sistemas de primer y segundo orden, la respuesta final en el tiempo sera:
+$$
+c(t) = a + \sum_{j=1}^q a_{j}e^{-p_{j}t} +\sum_{k=1}^r b_{k}e^{-\zeta_{k}\omega_{k}t}\cos(\omega_{k}\sqrt{ 1-\zeta_{k}^2 } \ t)+
+\sum_{k=1}^r c_{k} e^{-\zeta_{k}\omega_{k}t} \sin(\omega_{k}\sqrt{ 1-\zeta_k^2 }\ t)
+$$
+por lo que es la suma de exponenciales y oscillaciones amortiguadas.
+
+#### Polos Dominantes
+
+Las formulas que vimos antes para calcular los tiempos de subida, bajada, sobrelevacion, etc... ya no son validas para sistemas con mas de dos polos o con zeros, pero no desesperes, bajo ciertas condiciones podemos approximar (como un buen ingeniero) un sistema con mas de dos polos o con zeros como un sistema de segundo orden que tiene solo dos **Polos dominantes** complejos.
+
+Supongamos que tenemos una respuesta:
+$$
+c(t) = Au(t)+ e^{-\zeta\omega_{n}t}(B \cos\omega_{d}t +C\sin \omega_{d}t) + De^{-\alpha_{r}t}
+$$
+y tenemos $\hspace{0pt}3$ casos para evaluar:
+- Caso $\hspace{0pt}1$: $\alpha_{r}$ no es mucho mas grande que $\zeta \omega_{n}$
+- Caso 2: $\alpha_{r}$ es mucho mayor que $\zeta\omega_{n}$
+- Caso 3: $\alpha_{r}=\infty$
+
+![](https://i.imgur.com/pDNy1aF.png)
+
+podemos que ver que cuando $\alpha_{r}\gg \zeta\omega_{n}$ (Caso 2), la exponencial pura va a morir mucho mas rapido que la oscilación de segundo orden, podemos razonar entonces que si la exponencial pura decae a un valor insigte para cuando llegamos a la primer sobreelevacion, entonces nuestras formulas para sobreelevacion, y tiempos de subida, etc... siguen siendo validas con cierto error dependiente de que tan lejos este el polo real de los polos dominantes.
+
+### Error De Estado Estable
+
+Errores en un sistema de control pueden ser atribuidos a multiples factores, cambios en la input de referencia 
+
 # Apendix
 
 
