@@ -902,7 +902,162 @@ podemos que ver que cuando $\alpha_{r}\gg \zeta\omega_{n}$ (Caso 2), la exponenc
 
 ### Error De Estado Estable
 
-Errores en un sistema de control pueden ser atribuidos a multiples factores, cambios en la input de referencia 
+Errores en un sistema de control pueden ser atribuidos a multiples factores, cambios en la input de referencia.
+
+dado un sistema:
+![](https://i.imgur.com/au2MWJU.png)
+
+con función de transferencia:
+$$
+G(s) = \frac{K(T_{a}s+1)(T_{b}s+1)\cdots (T_{m}s+1)}{s^N (T_{1}s+1)(T_{2}s+1)\cdots (T_{p}s+1)}
+$$
+podemos ver que incluye un termino $s^N$ este representa la multiplicidad($N$) del polo 0, esto el numero de veces que el polo se repite, usando este numero definimos el tipo del sistema, a medida que aumentamos esta multiplicidad el sistema se hace mas preciso, sin embargo a la vez complica el problema de la estabilidad.
+
+para calcular el error de estado estable de este sistema primero analizamos la función de transferencia entre la salida y la entrada:
+$$
+\frac{C(s)}{R(s)} = \frac{G(s)}{1+G(s)}
+$$
+la función de transferencia entre la señal de error $e(t)$ y la señal de entrada $r(t)$, teniendo en cuenta que la señal de error es la diferencia entre la entrada y la salida, es:
+$$
+\begin{align}
+E(s) & = R(s)-C(s) \\
+
+\frac{E(s)}{R(s)} & = 1- \frac{C(s)}{R(s)} = \frac{1}{1+G(s)}
+\end{align}
+$$
+el valor final nos da una forma conveniente de encontrar el error de estado estable:
+$$
+E(s) = \frac{1}{1+G(s)} R(s)
+$$
+el error de estado estable es entonces:
+$$
+e_{ss}(t) = \lim_{ t \to \infty }e(t) = \lim_{ s \to 0 } sE(s) = \lim_{ s \to 0 } \frac{sR(s)}{1+G(s)} 
+$$
+
+#### Para Un Sistema Con Input Escalon Unitaria
+
+$$
+e_{ss} = \lim_{ s \to 0 } \frac{s}{1+G(s)} \frac{1}{s} = \frac{1}{1+G(0)}
+$$
+Entonces la error de posicion estatica constante $K_{p}$ esta dada por:
+$$
+K_{p} = \lim_{ s \to 0 } G(s) = G(0)
+$$
+y el error de estado estable en terminos del error constante sera:
+$$
+e_{ss} = \frac{1}{1+K_{p}}
+$$
+para un sistema de tipo $\hspace{0pt}0$, es decir multiplicidad $\hspace{0pt}0$ en el polo $\hspace{0pt}0$, tenemos:
+$$
+K_{p} = \lim_{ s \to 0 } \frac{K (T_{a}s+1)(T_{b}s+1)\cdots}{(T_{1}s+1)(T_{2}s+1)\cdots} = K
+$$
+para un sistema de tipo $\hspace{0pt}1$ o mayor:
+$$
+\begin{align}
+K_{p} = \lim_{ s \to 0 } \frac{K (T_{a}s+1)(T_{b}s+1)\cdots}{s^N(T_{1}s+1)(T_{2}s+1)\cdots} = \infty & & \text{for $N\geq 1$}
+\end{align}
+$$
+por lo tanto si $K_{p}$ es infinito para sistemas de tipo $\hspace{0pt}1$ o mayor el error de estado estable sera 0. 
+
+$$
+\begin{align}
+e_{ss} & = \frac{1}{1+K} & & \text{tipo 0} \\
+e_{ss} & = 0 & & \text{tipo }\geq 1
+\end{align}
+$$
+
+#### Para Entrada Tipo Rampa
+
+en este caso:
+$$
+\begin{align}
+e_{ss} & = \lim_{ s \to 0 } \frac{s}{1+G(s)} \frac{1}{s^2} \\
+&= \lim_{ s \to 0 } \frac{1}{sG(s)}
+\end{align}
+$$
+la constante de error de velocidad constate $K_{v}$ esta definida por:
+$$
+K_{v} = \lim_{ s \to 0 } sG(s)
+$$
+Por lo tanto el error de estado estable en terminos de la velocidad estable esta dado por:
+$$
+e_{ss} = \frac{1}{K_{v}}
+$$
+La dimension del error de velocidad es la misma que la del error del sistema, por lo tanto la el error de velocidad no es un error en la velocidad, sino que un error en posicion debido a una entrada rampa (velocidad constante).
+![](https://i.imgur.com/XRWw2EQ.png)
+
+para un sistema de tipo 0:
+
+$$
+K_{v } = \lim_{ s \to 0 } \frac{sK (T_{a}s+1)(T_{b}s+1)\cdots}{(T_{1}s+1)(T_{2}s+1)\cdots} = 0
+$$
+para un sistema de tipo $\hspace{0pt}1$ 
+$$
+K_{v } = \lim_{ s \to 0 } \frac{sK (T_{a}s+1)(T_{b}s+1)\cdots}{s(T_{1}s+1)(T_{2}s+1)\cdots} = K
+$$
+para un sistema de tipo $\hspace{0pt}2$ $o$ mayor:
+$$
+K_{v } = \lim_{ s \to 0 } \frac{sK (T_{a}s+1)(T_{b}s+1)\cdots}{s^N(T_{1}s+1)(T_{2}s+1)\cdots} = \infty
+$$
+por lo tanto tendremos:
+
+$$
+\begin{align}
+e_{ss} & = \frac{1}{K_{v}}= \infty & & \text{tipo 0} \\
+e_{ss} & = \frac{1}{K_{v}}= \frac{1}{K} & & \text{tipo }1 \\
+e_{ss} & = \frac{1}{K_{v}} = 0 & & \text{tipo }N\geq 2
+\end{align}
+$$
+
+#### Sistemas Con Entrada Parabolica
+
+$$
+e_{ss} = \lim_{ s \to 0 } \frac{s}{1+G(s)} \frac{1}{s^3} = \frac{1}{\lim_{ s \to 0 } s^2 G(s)}
+$$
+la constante de error de acceleracion estatica es entonces:
+$$
+K_{a} = \lim_{ s \to 0 } s^2G(s)
+$$
+el error de estado estable entonces pasa a ser:
+$$
+e_{ss} = \frac{1}{K_{a}}
+$$
+y obtenemos los valores de $K_{a}$ como:
+
+tipo 0:
+$$
+K_{p} = \lim_{s \to 0 } \frac{s^2K (T_{a}s+1)(T_{b}s+1)\cdots}{(T_{1}s+1)(T_{2}s+1)\cdots} = 0
+$$
+tipo 1:
+$$
+K_{p} = \lim_{ s \to 0 } \frac{s^2K (T_{a}s+1)(T_{b}s+1)\cdots}{s(T_{1}s+1)(T_{2}s+1)\cdots} = 0
+$$
+tipo 2:
+$$
+K_{p} = \lim_{ s \to 0 } \frac{s^2K (T_{a}s+1)(T_{b}s+1)\cdots}{s^2(T_{1}s+1)(T_{2}s+1)\cdots} = K
+$$
+tipo $\geq 3$:
+$$
+K_{p} = \lim_{ s \to 0 } \frac{s^2K (T_{a}s+1)(T_{b}s+1)\cdots}{s^N(T_{1}s+1)(T_{2}s+1)\cdots} = \infty
+$$
+por lo tanto quedamos con:
+
+$$
+\begin{align}
+e_{ss} & = \frac{1}{K_{a}}= \infty & & \text{tipo $\hspace{0pt}0$ y tipo 1} \\
+e_{ss} & = \frac{1}{K_{a}}= \frac{1}{K} & & \text{tipo }2 \\
+e_{ss} & = \frac{1}{K_{a}} = 0 & & \text{tipo }N\geq 3
+\end{align}
+$$
+![](https://i.imgur.com/z5ppOQ5.png)
+
+en resumen:
+los errores de posicion, velocidad y acceleracion, definen error en la posicion de salida, por ejemplo un error de velocidad nos dice que una vez que la respuesta transitoria desparece y la velocidad de entrada coincide con la de salida vamos a tener un error en la posicion.
+
+![](https://i.imgur.com/wjJHcWc.png)
+
+las constantes de error $K_{p}, K_{v}, K_{a}$ describen la habilidad de un sistema de reducir o eliminar error de estado estable, y son indicativos de la performance en estado estable del sistema, por lo general queremos que estas constantes sean altas y mantener las respuestas transitorias en un rango acceptable.
+Para incrementar la perfomance en estado estable podemos agregar un integrador o integradores en la rama de $G(s)$, pero esto nos introduce otro problema, la estabilidad.
 
 # Apendix
 
@@ -944,4 +1099,8 @@ $$
 \frac{1}{(x^2+2x+3)^2} = \frac{B_{1}x+C_{1}}{x^2+2x+3} + \frac{B_{2}x+C_{2}}{(x^2+2x+3)^2}
 $$
 en resumen, para cada polo cuadratico agregar un termino $(Bx+C)/\text{polo}$ y para cada polo normal agregar un termino $A/\text{polo}$, y si un polo esta exponenciado agregar un termino para cada potencia menor o igual al exponente.
+
+## Tipos de Entrada:
+
+![image-20221231090156290](/home/bbruno/.config/Typora/typora-user-images/image-20221231090156290.png)
 
