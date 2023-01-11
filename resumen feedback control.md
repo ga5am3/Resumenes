@@ -1059,6 +1059,107 @@ los errores de posicion, velocidad y acceleracion, definen error en la posicion 
 las constantes de error $K_{p}, K_{v}, K_{a}$ describen la habilidad de un sistema de reducir o eliminar error de estado estable, y son indicativos de la performance en estado estable del sistema, por lo general queremos que estas constantes sean altas y mantener las respuestas transitorias en un rango acceptable.
 Para incrementar la perfomance en estado estable podemos agregar un integrador o integradores en la rama de $G(s)$, pero esto nos introduce otro problema, la estabilidad.
 
+## Stabiity
+
+Existen tres requerimientos basicos para el diseño de un sistema de control:
+- Respuesta transitoria
+- Error en estado estable
+- **Estabilidad**
+
+### Definicion
+
+**Respuesta de estado cero**: es la que se debe a la entrada unicamente y todas las condiciones iniciales del sistema son 0.
+
+**Respuesta de entrada cero**: es la que se debe a las condiciones iniciales unicamente y todas las entradas son cero
+
+Respuesta total = Respuesta de estado cero + respuesta de entrada 0
+
+un sistema [LTI](Linear%20and%20Time%20Invariance%20(LTI)%20Systems.md) es **estable** si la respuesta de entrada cero tiende a cero cuando $t\to \infty$
+
+un sistema [LTI](Linear%20and%20Time%20Invariance%20(LTI)%20Systems.md) es **inestable** si la respuesta de entrada cero crece sin limite cuando $t\to \infty$
+
+un sistema [LTI](Linear%20and%20Time%20Invariance%20(LTI)%20Systems.md) es **marginalmente estable** si la respuesta de entrada cero no crece ni decrece cuando $t\to \infty$
+
+podemos ver esto en funcion de nuestros polos complejos como:
+![](https://i.imgur.com/AHnjCud.png)
+
+### Nyquist Stability Criterion
+
+Este criterio determina la estabilidad de un sistema de lazo cerrado desde la respuesta de la respuesta de lazo abierto y sus polos a lazo abierto, sin la necesidad de determinar las raíces de la ecuacion característica.
+
+$$
+\frac{C(S)}{R(s)} = G(s)
+$$
+**Permite determinar**:
+- La cantidad de polos en el semiplano izquierdo
+- La cantidad de polos en el semiplano derecho
+- La cantidad de polos sobre el eje imaginario
+
+**El metodo requiere**:
+- Generar el arreglo de Routh
+- Interpretar el arreglo para determinar la cantidad de polos en cada semiplano y sobre el eje imaginario
+
+si tenemos una función de transferencia:
+![](https://i.imgur.com/4owHemH.png)
+
+Entonces armamos el arreglo de la siguiente manera:
+![](https://i.imgur.com/kBpU56I.png)
+
+el numero de raíces del polinomio característico positivas es igual al numero de cambios de signo de los elementos de la primera columna, y el sistema es estable si no hay cambios de signo en la primera columna.
+
+**Ejemplo:**
+
+![](https://i.imgur.com/OwIHnPc.png)
+
+en este caso hay dos cambios de signo por lo que el sistema es inestable, y tiene dos polos positivos.
+
+#### Casos Especiales
+
+##### Zero En La Primera Columna
+
+si es que tenemos un zero en la primera columna, asignamos un valor muy pequeño para substituir el zero $\epsilon$.
+
+![](https://i.imgur.com/aZRg7PH.png)
+
+luego evaluamos que pasa si tomamos $\epsilon$ como positivo o negativo:
+
+![](https://i.imgur.com/iKVbqx9.png)
+podemos ver que si lo tomamos como positivo tendremos dos cambios de signo, lo que es lo mismo que obtendríamos si lo tomaríamos como negativo, por lo que el sistema es inestable.
+
+
+Otro metodo que puede ser utilizado cuando un zero aparece solo en la primera columna, es derivado del hecho que un polinomio tiene sus raices reciprocas del polinomio original distribuidas de la misma manera, porque tomar el reciproco de las raices no las mueve a otra region.
+
+asume que estamos buscando un polinomio, $y$ el reciproco es simple el original con sus coeficientes escritos al revés, asumí la ecuación:
+
+$$
+s^n +a_{n-1}s^{n-1} + \cdots +a_{1}+a_{0}=0
+$$
+si remplazamos $s$ por $1/d$ entonces $d$ va a tener raices reciprocas a $s$:
+$$
+\left( \frac{1}{d} \right)^n + a_{n-1}\left( \frac{1}{d} \right)^{n-1} + \cdots+ a_{1}\left( \frac{1}{d} \right) +a_{0}=0
+$$
+sacando de factor comun $1/d$:
+$$
+\begin{align}
+ & \left( \frac{1}{d} \right)^n \left[1+ a_{n}\left( \frac{1}{d} \right)^{-1}+ \cdots + + a_{1} \left( \frac{1}{d} \right)^{(1-n)}+a_{0}\left( \frac{1}{d} \right)^{-n} \right] \\
+ & = \left( \frac{1}{d} \right)^n [1+a_{n-1}d+\cdots+a_{1}d^{n-1}+ a_{0}d^n] = 0
+\end{align}
+$$
+por lo tanto podemos ver que el polinomio con raíces reciprocas es un polinomio con los coeficientes escritos al revés.
+
+![](https://i.imgur.com/kl3afia.png)
+
+##### Todo Un Renglón Formado Por Ceros
+
+Si tenemos un renglón de todos ceros en la tabla de Routh entonces vamos al renglon arriba y remplazamos el renglón de zeros por la derivada del polinomio de arriba.
+
+![](https://i.imgur.com/tlDwqi7.png)
+
+
+Los polinomios pares solo tienen raíces simétricas respecto del origen, por lo tanto se puede determinar la ubicación de los polos mediante la inspección del arreglo a partir del polinomio par (el renglón previo al de ceros)
+
+
+
 # Apendix
 
 
